@@ -1,0 +1,293 @@
+# 由 WrionTools 的 WrionPatcher 页面生成；在页面里保存会覆盖这里的手工修改。
+# Static DEX fixes applied by the WrionPatcher that the Builder embeds
+# (third_party/wrion-patcher). Each wrion_patch fails closed unless the
+# staged package matches a reviewed baseline; patched APKs are re-signed
+# with the bundled Harusora key and get default-signer seapp rules below.
+
+schema_version = 1
+
+[plugin]
+id = "flyme12.wrion-patcher-houji"
+version = "0.1.0"
+engine = ">=0.1.0,<0.2.0"
+description = "WrionPatcher 静态修补（Xiaomi 14）"
+enabled = true
+order = 1410
+
+[port]
+mutable_partitions = ["system", "system_ext"]
+
+[[steps]]
+id = "patch-services-fingerprint"
+
+[[steps.actions]]
+id = "wrion-services-fingerprint"
+op = "wrion_patch"
+path = "stage:system/system/framework/services.jar"
+scope = "services"
+source_dex = "asset:common/wrion-patcher/service-flyme.dex"
+plans = ["services.fingerprint_lifecycle", "services.face_camera_ownership", "services.flyme_color_mode", "services.flyme_wireless_reverse_charging", "services.gesture.fod_touch_arming", "services.gesture.double_tap_to_wake"]
+
+[[steps]]
+id = "patch-telephony-meizu"
+
+[[steps.actions]]
+id = "wrion-telephony-meizu"
+op = "wrion_patch"
+path = "stage:system/system/framework/meizu-telephony-common.jar"
+scope = "telephony-meizu"
+plans = ["flyme.ril.meizu_telephony"]
+
+[[steps]]
+id = "patch-telephony-qti"
+
+[[steps.actions]]
+id = "wrion-telephony-qti"
+op = "wrion_patch"
+path = "stage:system_ext/framework/qti-telephony-common.jar"
+scope = "telephony-qti"
+plans = ["flyme.ril.qti_telephony"]
+
+[[steps]]
+id = "patch-settings-fingerprint"
+
+[[steps.actions]]
+id = "wrion-settings-fingerprint"
+op = "wrion_patch"
+path = "stage:system_ext/priv-app/Settings/Settings.apk"
+scope = "settings"
+plans = ["settings.enrollment_progress", "settings.ui_progress", "settings.raise_to_wake", "settings.face_preview_surface"]
+
+[[steps]]
+id = "patch-settings-display"
+needs = ["patch-settings-fingerprint"]
+
+[[steps.actions]]
+id = "wrion-settings-display"
+op = "wrion_patch"
+path = "stage:system_ext/priv-app/Settings/Settings.apk"
+scope = "settings"
+profile = "patches/flyme/settings/display/points.json"
+plans = ["settings.brightness_slider", "settings.flyme_color_page"]
+
+[[steps]]
+id = "patch-systemui-brightness"
+
+[[steps.actions]]
+id = "wrion-systemui-brightness"
+op = "wrion_patch"
+path = "stage:system_ext/priv-app/SystemUI/SystemUI.apk"
+scope = "systemui"
+plans = ["systemui.brightness_curve"]
+
+[[steps]]
+id = "patch-systemui-aod"
+needs = ["patch-systemui-brightness"]
+
+[[steps.actions]]
+id = "wrion-systemui-aod"
+op = "wrion_patch"
+path = "stage:system_ext/priv-app/SystemUI/SystemUI.apk"
+scope = "systemui"
+profile = "patches/flyme/systemui/aod/points.json"
+plans = ["systemui.flyme_aod_panel_bridge"]
+
+[[steps]]
+id = "patch-systemui-fingerprint-nav"
+needs = ["patch-systemui-aod"]
+
+[[steps.actions]]
+id = "wrion-systemui-fingerprint-nav"
+op = "wrion_patch"
+path = "stage:system_ext/priv-app/SystemUI/SystemUI.apk"
+scope = "systemui"
+profile = "patches/flyme/systemui/fingerprint_nav/points.json"
+plans = ["systemui.flyme_optical_fp_and_mback"]
+
+[[steps]]
+id = "patch-camera"
+
+[[steps.actions]]
+id = "wrion-camera"
+op = "wrion_patch"
+path = "stage:system/system/app/Camera/Camera.apk"
+scope = "camera"
+plans = ["camera.meizu_on_xiaomi_hal"]
+
+[[steps]]
+id = "drop-stale-preopt"
+needs = ["patch-services-fingerprint", "patch-telephony-meizu", "patch-telephony-qti", "patch-settings-display", "patch-systemui-fingerprint-nav", "patch-camera"]
+
+[[steps.actions]]
+id = "drop-services-jar-preopt-0"
+op = "delete"
+path = "stage:system/system/framework/oat/arm64/services.odex"
+on_missing = "skip"
+
+[[steps.actions]]
+id = "drop-services-jar-preopt-1"
+op = "delete"
+path = "stage:system/system/framework/oat/arm64/services.odex.fsv_meta"
+on_missing = "skip"
+
+[[steps.actions]]
+id = "drop-services-jar-preopt-2"
+op = "delete"
+path = "stage:system/system/framework/oat/arm64/services.vdex"
+on_missing = "skip"
+
+[[steps.actions]]
+id = "drop-services-jar-preopt-3"
+op = "delete"
+path = "stage:system/system/framework/oat/arm64/services.vdex.fsv_meta"
+on_missing = "skip"
+
+[[steps.actions]]
+id = "drop-services-jar-preopt-4"
+op = "delete"
+path = "stage:system/system/framework/oat/arm64/services.art"
+on_missing = "skip"
+
+[[steps.actions]]
+id = "drop-services-jar-preopt-5"
+op = "delete"
+path = "stage:system/system/framework/oat/arm64/services.art.fsv_meta"
+on_missing = "skip"
+
+[[steps.actions]]
+id = "drop-meizu-telephony-common-jar-preopt-0"
+op = "delete"
+path = "stage:system/system/framework/oat/arm64/meizu-telephony-common.odex"
+on_missing = "skip"
+
+[[steps.actions]]
+id = "drop-meizu-telephony-common-jar-preopt-1"
+op = "delete"
+path = "stage:system/system/framework/oat/arm64/meizu-telephony-common.odex.fsv_meta"
+on_missing = "skip"
+
+[[steps.actions]]
+id = "drop-meizu-telephony-common-jar-preopt-2"
+op = "delete"
+path = "stage:system/system/framework/oat/arm64/meizu-telephony-common.vdex"
+on_missing = "skip"
+
+[[steps.actions]]
+id = "drop-meizu-telephony-common-jar-preopt-3"
+op = "delete"
+path = "stage:system/system/framework/oat/arm64/meizu-telephony-common.vdex.fsv_meta"
+on_missing = "skip"
+
+[[steps.actions]]
+id = "drop-meizu-telephony-common-jar-preopt-4"
+op = "delete"
+path = "stage:system/system/framework/oat/arm64/meizu-telephony-common.art"
+on_missing = "skip"
+
+[[steps.actions]]
+id = "drop-meizu-telephony-common-jar-preopt-5"
+op = "delete"
+path = "stage:system/system/framework/oat/arm64/meizu-telephony-common.art.fsv_meta"
+on_missing = "skip"
+
+[[steps.actions]]
+id = "drop-qti-telephony-common-jar-preopt-0"
+op = "delete"
+path = "stage:system_ext/framework/oat/arm64/qti-telephony-common.odex"
+on_missing = "skip"
+
+[[steps.actions]]
+id = "drop-qti-telephony-common-jar-preopt-1"
+op = "delete"
+path = "stage:system_ext/framework/oat/arm64/qti-telephony-common.odex.fsv_meta"
+on_missing = "skip"
+
+[[steps.actions]]
+id = "drop-qti-telephony-common-jar-preopt-2"
+op = "delete"
+path = "stage:system_ext/framework/oat/arm64/qti-telephony-common.vdex"
+on_missing = "skip"
+
+[[steps.actions]]
+id = "drop-qti-telephony-common-jar-preopt-3"
+op = "delete"
+path = "stage:system_ext/framework/oat/arm64/qti-telephony-common.vdex.fsv_meta"
+on_missing = "skip"
+
+[[steps.actions]]
+id = "drop-qti-telephony-common-jar-preopt-4"
+op = "delete"
+path = "stage:system_ext/framework/oat/arm64/qti-telephony-common.art"
+on_missing = "skip"
+
+[[steps.actions]]
+id = "drop-qti-telephony-common-jar-preopt-5"
+op = "delete"
+path = "stage:system_ext/framework/oat/arm64/qti-telephony-common.art.fsv_meta"
+on_missing = "skip"
+
+[[steps.actions]]
+id = "drop-settings-apk-preopt-0"
+op = "delete_tree"
+path = "stage:system_ext/priv-app/Settings/oat"
+on_missing = "skip"
+
+[[steps.actions]]
+id = "drop-systemui-apk-preopt-0"
+op = "delete_tree"
+path = "stage:system_ext/priv-app/SystemUI/oat"
+on_missing = "skip"
+
+[[steps.actions]]
+id = "drop-camera-apk-preopt-0"
+op = "delete_tree"
+path = "stage:system/system/app/Camera/oat"
+on_missing = "skip"
+
+[[steps]]
+id = "install-camera-priv-app"
+needs = ["drop-stale-preopt"]
+
+[[steps.actions]]
+id = "move-camera-to-priv-app"
+op = "move_tree"
+from = "stage:system/system/app/Camera"
+to = "stage:system/system/priv-app/Camera"
+
+[[steps.actions]]
+id = "copy-camera-privapp-permissions"
+op = "copy"
+from = "asset:common/wrion-patcher/privapp-permissions-wrion-camera.xml"
+to = "stage:system/system/etc/permissions/privapp-permissions-wrion-camera.xml"
+
+# Package-scoped rules that give the re-signed packages the app domains
+# their platform-signed baseline rules give them.
+[[steps]]
+id = "default-signer-seapp-contexts"
+
+[[steps.actions]]
+id = "seapp-default-signer-0"
+op = "replace_text"
+path = "stage:system/system/etc/selinux/plat_seapp_contexts"
+find = """
+user=system seinfo=platform domain=system_app type=system_app_data_file
+"""
+replace = """
+user=system seinfo=default isPrivApp=true name=com.android.settings domain=system_app type=system_app_data_file
+user=system seinfo=platform domain=system_app type=system_app_data_file
+"""
+expected_matches = 1
+
+[[steps.actions]]
+id = "seapp-default-signer-1"
+op = "replace_text"
+path = "stage:system/system/etc/selinux/plat_seapp_contexts"
+find = """
+user=_app seinfo=platform domain=platform_app type=app_data_file levelFrom=user
+"""
+replace = """
+user=_app seinfo=default isPrivApp=true name=com.android.systemui domain=platform_app type=app_data_file levelFrom=user
+user=_app seinfo=default isPrivApp=true name=com.meizu.media.camera domain=platform_app type=app_data_file levelFrom=user
+user=_app seinfo=platform domain=platform_app type=app_data_file levelFrom=user
+"""
+expected_matches = 1

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permissions>
+    <privapp-permissions package="com.meizu.media.camera">
+        <permission name="android.permission.BACKUP"/>
+        <permission name="android.permission.BLUETOOTH_PRIVILEGED"/>
+        <permission name="android.permission.CHANGE_COMPONENT_ENABLED_STATE"/>
+        <permission name="android.permission.CONTROL_DEVICE_LIGHTS"/>
+        <permission name="android.permission.INTERACT_ACROSS_USERS"/>
+        <permission name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+        <permission name="android.permission.STATUS_BAR"/>
+        <permission name="android.permission.TETHER_PRIVILEGED"/>
+        <permission name="android.permission.UPDATE_DEVICE_STATS"/>
+        <permission name="android.permission.WRITE_SECURE_SETTINGS"/>
+        <permission name="com.flyme.secureservice.permission.OPEN_DATA_PROVIDER"/>
+        <permission name="com.flyme.secureservice.permission.SECURE_SERVICE"/>
+        <permission name="com.meizu.functionmanager"/>
+        <permission name="com.meizu.permission.FLYME_LINK_UNION"/>
+        <permission name="com.meizu.safe.permission.QR_CODE_LOCAL_DB"/>
+        <permission name="com.meizu.safe.permission.QR_CODE_SCAN_SERVICE"/>
+        <permission name="meizu.permission.BIND_PRIVACY_CONTROLER"/>
+    </privapp-permissions>
+</permissions>

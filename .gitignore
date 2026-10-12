@@ -1,0 +1,7 @@
+# Local checkout and generated artifacts
+target/
+workspace/
+output/
+build/
+.harusora/
+*.log

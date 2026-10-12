@@ -1,0 +1,22 @@
+schema_version = 1
+
+[scheme]
+id = "flyme12.wrion-port"
+version = "0.1.0"
+engine = ">=0.1.0,<0.2.0"
+name = "Flyme 12 → Xiaomi"
+source_system = "flyme"
+
+[port]
+mutable_partitions = ["system", "system_ext", "product"]
+required_protected_partitions = ["vendor", "odm", "vendor_dlkm", "odm_dlkm"]
+
+[[parameters]]
+id = "device_codename"
+type = "string"
+required = true
+
+[[parameters]]
+id = "source_version"
+type = "string"
+required = false

@@ -1,0 +1,70 @@
+schema_version = 1
+
+# Flyme 12 trimming shared by every target. The stock Meizu Camera stays: the
+# WrionPatcher camera profile runs it on the Xiaomi camera HAL.
+
+[plugin]
+id = "flyme12.cleanup"
+version = "0.1.0"
+engine = ">=0.1.0,<0.2.0"
+description = "Flyme 精简：移除 custom 分区内容、广告与商店类应用、media XML 属性"
+enabled = true
+order = 100
+
+[port]
+mutable_partitions = ["system", "product"]
+
+[[steps]]
+id = "remove-product-custom"
+
+[[steps.actions]]
+id = "remove-product-custom"
+op = "delete_tree"
+path = "stage:product/custom"
+on_missing = "skip"
+
+[[steps]]
+id = "remove-flyme-apps"
+
+[[steps.actions]]
+id = "remove-flyme-music"
+op = "delete_tree"
+path = "stage:system/system/MzApp/FlymeMusic"
+on_missing = "skip"
+
+[[steps.actions]]
+id = "remove-mz-ad-app"
+op = "delete_tree"
+path = "stage:system/system/MzApp/MzAdApp"
+on_missing = "skip"
+
+[[steps.actions]]
+id = "remove-mzbbs"
+op = "delete_tree"
+path = "stage:system/system/MzApp/mzbbs"
+on_missing = "skip"
+
+[[steps.actions]]
+id = "remove-mz-store"
+op = "delete_tree"
+path = "stage:system/system/MzApp/MzStore"
+on_missing = "skip"
+
+[[steps.actions]]
+id = "remove-reader"
+op = "delete_tree"
+path = "stage:system/system/MzApp/Reader"
+on_missing = "skip"
+
+# Meizu's media profile XML does not describe the Xiaomi codecs; without the
+# property the device's own media_profiles are used.
+[[steps]]
+id = "remove-media-settings-xml-property"
+
+[[steps.actions]]
+id = "remove-media-settings-xml-property"
+op = "remove_prop"
+path = "stage:system/system/build.prop"
+key = "media.settings.xml"
+duplicate = "all"
+on_missing = "skip"

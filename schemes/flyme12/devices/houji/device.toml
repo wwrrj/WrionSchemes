@@ -1,0 +1,186 @@
+schema_version = 1
+
+[device]
+codename = "houji"
+display_name = "Xiaomi 14"
+aliases = ["houjiin"]
+description = "Xiaomi 14 (houji / houjiin)"
+author = "wwrrj"
+
+[plugins]
+enabled = [
+  "flyme12.cleanup",
+  "flyme12.wrion-patcher-houji",
+]
+disabled = []
+
+[flash]
+minimum_super_bytes = 17179869184
+active_slot = "a"
+unmap_partitions = ["system", "system_ext", "product"]
+include_flash_tool = true
+enable_root_menu = false
+flash_crc_lists = false
+
+[flash.expansion]
+enabled = true
+target_bytes = 17179869184
+disk = "/dev/block/sda"
+super_part = 32
+userdata_part = 33
+backup_dir = "backup"
+sgdisk_dir = "tools/sgdisk-arm64"
+confirm_word = "EXPAND"
+restore_confirm_word = "RESTORE"
+
+[[flash.images]]
+file = "firmware/abl.elf"
+partitions = ["abl_a", "abl_b"]
+
+[[flash.images]]
+file = "firmware/xbl_s.melf"
+partitions = ["xbl_a", "xbl_b"]
+
+[[flash.images]]
+file = "firmware/xbl_config.elf"
+partitions = ["xbl_config_a", "xbl_config_b"]
+
+[[flash.images]]
+file = "firmware/cpucp_dtbs.elf"
+partitions = ["cpucp_dtb_a", "cpucp_dtb_b"]
+
+[[flash.images]]
+file = "firmware/shrm.elf"
+partitions = ["shrm_a", "shrm_b"]
+
+[[flash.images]]
+file = "firmware/aop.mbn"
+partitions = ["aop_a", "aop_b"]
+
+[[flash.images]]
+file = "firmware/aop_devcfg.mbn"
+partitions = ["aop_config_a", "aop_config_b"]
+
+[[flash.images]]
+file = "firmware/tz.mbn"
+partitions = ["tz_a", "tz_b"]
+
+[[flash.images]]
+file = "firmware/devcfg.mbn"
+partitions = ["devcfg_a", "devcfg_b"]
+
+[[flash.images]]
+file = "firmware/featenabler.mbn"
+partitions = ["featenabler_a", "featenabler_b"]
+
+[[flash.images]]
+file = "firmware/hypvmperformance.mbn"
+partitions = ["hyp_a", "hyp_b"]
+
+[[flash.images]]
+file = "firmware/uefi.elf"
+partitions = ["uefi_a", "uefi_b"]
+
+[[flash.images]]
+file = "firmware/uefi_sec.mbn"
+partitions = ["uefisecapp_a", "uefisecapp_b"]
+
+[[flash.images]]
+file = "firmware/spu_service.mbn"
+partitions = ["spuservice_a", "spuservice_b"]
+
+[[flash.images]]
+file = "firmware/NON-HLOS.bin"
+partitions = ["modem_a", "modem_b"]
+
+[[flash.images]]
+file = "firmware/MODEM-FW.bin"
+partitions = ["modemfirmware_a", "modemfirmware_b"]
+
+[[flash.images]]
+file = "firmware/BTFM.bin"
+partitions = ["bluetooth_a", "bluetooth_b"]
+
+[[flash.images]]
+file = "firmware/dspso.bin"
+partitions = ["dsp_a", "dsp_b"]
+
+[[flash.images]]
+file = "firmware/keymint.mbn"
+partitions = ["keymaster_a", "keymaster_b"]
+
+[[flash.images]]
+file = "firmware/qupv3fw.elf"
+partitions = ["qupfw_a", "qupfw_b"]
+
+[[flash.images]]
+file = "firmware/multi_image.mbn"
+partitions = ["multiimgoem_a", "multiimgoem_b"]
+
+[[flash.images]]
+file = "firmware/multi_image_qti.mbn"
+partitions = ["multiimgqti_a", "multiimgqti_b"]
+
+[[flash.images]]
+file = "firmware/cpucp.elf"
+partitions = ["cpucp_a", "cpucp_b"]
+
+[[flash.images]]
+file = "firmware/XblRamdump.elf"
+partitions = ["xbl_ramdump_a", "xbl_ramdump_b"]
+
+[[flash.images]]
+file = "firmware/imagefv.elf"
+partitions = ["imagefv_a", "imagefv_b"]
+
+[[flash.images]]
+file = "firmware/logfs_ufs_8mb.bin"
+partitions = ["logfs"]
+
+[[flash.images]]
+file = "firmware/storsec.mbn"
+partitions = ["storsec"]
+
+[[flash.images]]
+file = "firmware/tools.fv"
+partitions = ["toolsfv"]
+
+[[flash.images]]
+file = "boot/init_boot.img"
+partitions = ["init_boot_a", "init_boot_b"]
+stage = "boot_chain"
+
+[[flash.images]]
+file = "boot/vendor_boot.img"
+partitions = ["vendor_boot_a", "vendor_boot_b"]
+stage = "boot_chain"
+
+[[flash.images]]
+file = "firmware/dtbo.img"
+partitions = ["dtbo_a", "dtbo_b"]
+stage = "boot_chain"
+
+[[flash.images]]
+file = "firmware/vm-bootsys.img"
+partitions = ["vm-bootsys_a", "vm-bootsys_b"]
+stage = "boot_chain"
+
+[[flash.images]]
+file = "vbmeta/vbmeta.img"
+partitions = ["vbmeta_a", "vbmeta_b"]
+stage = "boot_chain"
+
+[[flash.images]]
+file = "vbmeta/vbmeta_system.img"
+partitions = ["vbmeta_system_a", "vbmeta_system_b"]
+stage = "boot_chain"
+
+[[flash.images]]
+file = "boot/recovery.img"
+partitions = ["recovery_a", "recovery_b"]
+stage = "boot_chain"
+
+[[flash.images]]
+file = "boot/boot.img"
+partitions = ["boot_a", "boot_b"]
+stage = "boot_chain"

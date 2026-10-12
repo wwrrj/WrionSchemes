@@ -1,0 +1,6 @@
+schema_version = 1
+
+[package]
+name = "Wrion Flyme 12"
+author = "wwrrj"
+update_binary_sha256 = "2a251e16e37d6b236da6ffd88dfd5f2480bd3b4f98e68444b397930f04dc33df"
