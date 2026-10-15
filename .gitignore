@@ -5,3 +5,7 @@ output/
 build/
 .harusora/
 *.log
+
+# 整包应用与库的分片体积大：分片不入库，manifest 与重建记录入库。
+# 重建方法见 schemes/flyme12/docs/whole-app-camera-20261015.md
+schemes/flyme12/assets/apps/*/*.part*

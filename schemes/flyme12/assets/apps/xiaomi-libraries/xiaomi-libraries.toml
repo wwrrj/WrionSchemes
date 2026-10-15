@@ -1,0 +1,9 @@
+schema_version = 1
+archive_size = 9992968
+archive_sha256 = "19b06219475778770f549128de48cefb104c7d32c8d5fde4a57cf2699392ff32"
+uncompressed_size = 9990992
+
+[[parts]]
+path = "xiaomi-libraries.part000"
+size = 9992968
+sha256 = "19b06219475778770f549128de48cefb104c7d32c8d5fde4a57cf2699392ff32"

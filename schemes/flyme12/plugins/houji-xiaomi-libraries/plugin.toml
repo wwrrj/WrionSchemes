@@ -1,0 +1,29 @@
+schema_version = 1
+
+# 小米系统库（system_ext）独立方案，供徕卡相机使用：MIUI 框架与相机 JAR、cameraopt、相机 JNI / HAL 库、
+# public.libraries 与权限 XML，共 11 个文件，来自 Magisk 模块 wrion_miui_camera 的 system_ext 部分。
+# RtMiCloudSDK 与 miuisystem 不在本插件中，由 flyme12.houji-xiaomi-apps（MiApps 版本）安装。
+# 来源、哈希与分片方法见 docs/whole-app-camera-20261015.md。
+
+[plugin]
+id = "flyme12.houji-xiaomi-libraries"
+version = "0.1.0"
+engine = ">=0.1.0,<0.2.0"
+description = "小米系统库（Xiaomi 14，system_ext：MIUI JAR 与相机库）"
+enabled = true
+order = 1420
+
+[port]
+mutable_partitions = ["system_ext"]
+
+[[steps]]
+id = "install-xiaomi-libraries"
+
+[[steps.actions]]
+id = "extract-xiaomi-libraries"
+op = "extract_chunked_zip"
+manifest = "asset:apps/xiaomi-libraries/xiaomi-libraries.toml"
+
+[[steps.actions.mappings]]
+prefix = "system/system_ext"
+to = "stage:system_ext"

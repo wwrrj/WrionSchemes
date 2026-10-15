@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<exceptions>
+    <exception package="com.xiaomi.account">
+        <permission name="android.permission.READ_PHONE_STATE" fixed="false" />
+    </exception>
+    <exception package="com.xiaomi.simactivate.service">
+        <permission name="android.permission.READ_PHONE_STATE" fixed="false" />
+    </exception>
+</exceptions>

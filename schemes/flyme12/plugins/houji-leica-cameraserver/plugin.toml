@@ -1,0 +1,126 @@
+schema_version = 1
+
+# Leica (houji) cameraserver 流桥接。基线 be5b8da9…（Flyme 12.6.0.0A 原厂）。
+# 3 个检测点、RX 段与分支修正表由 wrion_leica_stream_v4 反汇编得到（WrionPatcher/.local/leica-reprocess-20261013）。
+# 已在 device.toml 中默认启用：三处入口字不是被替换的原指令，stub 自行完成帧调整，需构建后核对；
+# 引擎 append_rx_stub 写入的元数据 section 也使输出字节不同于 v4。整包结果仍待验证。
+# 来源、哈希见 docs/whole-app-camera-20261015.md。
+
+[plugin]
+id = "flyme12.houji-leica-cameraserver"
+version = "0.1.0"
+engine = ">=0.1.0,<0.2.0"
+description = "Leica 相机 cameraserver 流桥接（Xiaomi 14，ARM64 RX 段，待验证）"
+enabled = true
+order = 1422
+
+[port]
+mutable_partitions = ["system"]
+
+[[steps]]
+id = "patch-leica-cameraserver"
+
+[[steps.actions]]
+id = "wrion-leica-cameraserver"
+op = "patch_elf_arm64"
+path = "stage:system/system/bin/cameraserver"
+
+[[steps.actions.patches]]
+kind = "append_rx_stub"
+id = "leica-stream-rx"
+source_sha256 = "be5b8da94a33f5953704378305c7d32e581b5906be0caf66bb599d66df5b9b9b"
+section = ".wrion_rx"
+stub_hex = "ff8303d1e00700a9e20f01a9e41702a9e61f03a9e82704a9f35305a9f55b06a9fd7b07a95f8c0071e00000545f840071a0000054292b8652c906a4725f00096b010d0054e60c0035c40c00b4a50c00b41f0000716d0c00543f0000712d0c005489004039c9000037297d01533f490071810b00548a04009106000014890440f93f4900f1e10a00548a0840f9aa0a00b48b0d00304c028052491540386d1540383f010d6be10900548c05007161ffff54f303002af403012af50305aaf603022ae00315aa01008052a132b072e80302918806ff97e93342393f05007121080054e94b40f93f0500f1c1070054ea4f40f98a0700b4490140b9df860071c10000543f910171c00000543f950171a1060054030000143fb1017141060054e00315aa010080524133b072e80302917106ff97e93342393f05007141050054e94b40f9090500b43f0540f2c10400543f1140f188040054ea4f40f94a0400b44b3140297f01166be10000549f01136ba10000544b3141297f01146b41000054ac0000344a410091291100f1a1feff5415000014e91f40f9490000b4330100b9e97340f9490000b4340100b9210300108203003080008052e303132ae403142ae503162a5e00ff97f35345a9f55b46a9fd7b47a920008052ff830391bf2303d5c0035fd6e00740a9e20f41a9e41742a9e61f43a9e82744a9f35345a9f55b46a9fd7b47a9ff830391ff8304d11d26fc175772696f6e4c6569636153747265616d0048414c2d6465636c61726564206f757470757420256478256420666f726d61743d256400636f6d2e616e64726f69642e63616d65726100e00300f9420000b5774ef6173e4ef617ff8304d1e00700a9e20f01a9e41702a9e61f03a9e82704a9f35305a9f55b06a9f76307a9f97b08a9e99340f92a8140395f090071c10d00542a8540395fd90071610d0054e00313aa01008052a132b072e88302910e06ff97e9b342393f050071610c0054e95b40f93f0500f1010c0054ea5f40f9ca0b00b4490140b93f910171610b0054e00313aa010080524133b072e8830291fe05ff97e9b342393f050071610a0054e95b40f9290a00b43f0540f2e10900543f1140f1a8090054ea5f40f96a0900b44b3140297f8d0071010100549fc13f71c10000544b3141297fd12f71610000549f050071a00000544a410091291100f181feff543d000014e00313aa41018052a101a072e8830291e005ff97e9b342393f050071a1060054f65b40f9760600b4df0640f221060054df1240f1e8050054f75f40f9b70500b4e90316aaea0317aa4b3140297f8d0071010100549fc13f71c10000544b3141297fd12f71610000549f050071200400544a410091291100f181feff54c012009100f47ed38504ff97400300b4f80300aae10317aac2f67ed31416ff970a0b168b6b0480520cfe81524b3100298b7e81522c0080524b310129e00313aa41018052a101a072e20318aac31200919b00ff97f903002ae00318aa8804ff97b9000035010200106202003080008052bbfffe97e00740a9e20f41a9e41742a9e61f43a9e82744a9f35345a9f55b46a9f76347a9f97b48a9ff830491bf060071cb4df6175772696f6e4c6569636153747265616d0063616d6572613d362048414c2d6465636c617265642059555620696e707574203430383078333036300000"
+
+[[steps.actions.patches.hooks]]
+address = 0x2b9a78
+expected_hex = "ff8304d1"
+patch_offset = 0
+stub_offset = 0x0
+
+[[steps.actions.patches.hooks]]
+address = 0x143b54
+expected_hex = "220700b4"
+patch_offset = 0
+stub_offset = 0x254
+
+[[steps.actions.patches.hooks]]
+address = 0x143ba4
+expected_hex = "bf060071"
+patch_offset = 0
+stub_offset = 0x264
+
+[[steps.actions.patches.branches]]
+offset = 0xd0
+target = 0x371af0
+link = true
+
+[[steps.actions.patches.branches]]
+offset = 0x12c
+target = 0x371af0
+link = true
+
+[[steps.actions.patches.branches]]
+offset = 0x1c0
+target = 0x370338
+link = true
+
+[[steps.actions.patches.branches]]
+offset = 0x208
+target = 0x2b9a7c
+link = false
+
+[[steps.actions.patches.branches]]
+offset = 0x25c
+target = 0x143c38
+link = false
+
+[[steps.actions.patches.branches]]
+offset = 0x260
+target = 0x143b58
+link = false
+
+[[steps.actions.patches.branches]]
+offset = 0x2b8
+target = 0x371af0
+link = true
+
+[[steps.actions.patches.branches]]
+offset = 0x2f8
+target = 0x371af0
+link = true
+
+[[steps.actions.patches.branches]]
+offset = 0x370
+target = 0x371af0
+link = true
+
+[[steps.actions.patches.branches]]
+offset = 0x3e4
+target = 0x3715f8
+link = true
+
+[[steps.actions.patches.branches]]
+offset = 0x3f8
+target = 0x375c48
+link = true
+
+[[steps.actions.patches.branches]]
+offset = 0x42c
+target = 0x370698
+link = true
+
+[[steps.actions.patches.branches]]
+offset = 0x438
+target = 0x371658
+link = true
+
+[[steps.actions.patches.branches]]
+offset = 0x44c
+target = 0x370338
+link = true
+
+[[steps.actions.patches.branches]]
+offset = 0x47c
+target = 0x143ba8
+link = false

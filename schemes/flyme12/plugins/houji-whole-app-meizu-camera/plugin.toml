@@ -1,0 +1,45 @@
+schema_version = 1
+
+# 魅族相机整包：静态补丁后的 Camera.apk，已用 Builder 内置发布密钥重签。
+# 不做运行时插桩，不依赖 ID 运行时。来源、哈希与重建步骤见
+# docs/whole-app-camera-20261015.md。替换原 app/Camera，放入 priv-app/Camera。
+# 包名限定的 seapp 规则仍由 wrion-patcher-houji 的 default-signer-seapp-contexts 提供。
+
+[plugin]
+id = "flyme12.houji-whole-app-meizu-camera"
+version = "0.1.0"
+engine = ">=0.1.0,<0.2.0"
+description = "魅族相机整包（Xiaomi 14，静态补丁 + 发布密钥重签）"
+enabled = true
+order = 1420
+
+[port]
+mutable_partitions = ["system"]
+
+[[steps]]
+id = "remove-stock-meizu-camera"
+
+[[steps.actions]]
+id = "delete-stock-camera-app-dir"
+op = "delete_tree"
+path = "stage:system/system/app/Camera"
+on_missing = "skip"
+
+[[steps]]
+id = "install-meizu-camera-whole-app"
+needs = ["remove-stock-meizu-camera"]
+
+[[steps.actions]]
+id = "extract-meizu-camera-apk"
+op = "extract_chunked_zip"
+manifest = "asset:apps/meizu-camera/meizu-camera.toml"
+
+[[steps.actions.mappings]]
+prefix = "system/priv-app/Camera"
+to = "stage:system/system/priv-app/Camera"
+
+[[steps.actions]]
+id = "copy-camera-privapp-permissions"
+op = "copy"
+from = "asset:common/wrion-patcher/privapp-permissions-wrion-camera.xml"
+to = "stage:system/system/etc/permissions/privapp-permissions-wrion-camera.xml"

@@ -1,0 +1,97 @@
+# 接入选择清单，不是 Builder 的 plugin.toml；不由 plugins/ 扫描，也不修改启用集合。
+format = "wrion-integration-selection"
+format_version = 1
+device = "houji"
+source_rom = "Flyme 12.6.0.0A"
+reviewed_on = "2026-10-15"
+activation_ready = false
+upstream_repository = "https://github.com/wwrrj/WrionPatcher"
+login_verified_commit = "9fa37cbd9c33d2d5492b21512dce29cc5c1464c3"
+builder_embedded_commit_observed = "510da4df820496aa77bf107a8c36f560c52bcb80"
+mutable_partitions = ["system", "system_ext", "product"]
+protected_baseline_partitions = ["vendor", "odm", "vendor_dlkm", "odm_dlkm"]
+evidence = "../../docs/houji-integration-20261015.md"
+inventory = "../../devices/houji/integration-inventory-20261015.json"
+
+[requirements]
+builder_new_scope_support = "pending"
+builder_generator_update = "pending"
+art_matching_set = "pending"
+original_app_assets = "pending"
+runtime_dependencies = "pending"
+final_rom_device_verification = "pending"
+
+[[profiles]]
+scope = "framework"
+path = "patches/flyme/framework/finddevice_window/points.json"
+target = "stage:system/system/framework/framework.jar"
+source_commit = "9fa37cbd9c33d2d5492b21512dce29cc5c1464c3"
+status = "login_verified_requires_matching_art"
+plans = [
+  "framework.xiaomi_app_compat",
+  "framework.xiaomi_account_telephony_fallback",
+  "framework.xiaomi_account_device_name",
+  "framework.finddevice_window_transport",
+]
+
+[[profiles]]
+scope = "services"
+path = "patches/flyme/services/wallet/finddevice_window/points.json"
+target = "stage:system/system/framework/services.jar"
+source_commit = "9fa37cbd9c33d2d5492b21512dce29cc5c1464c3"
+status = "login_verified_requires_matching_art"
+source_dex = "asset:common/wrion-patcher/service-flyme.dex"
+plans = [
+  "services.fingerprint_lifecycle",
+  "services.face_camera_ownership",
+  "services.flyme_color_mode",
+  "services.flyme_wireless_reverse_charging",
+  "services.xiaomi_tsm_shared_uid",
+  "services.xiaomi_account_library",
+  "services.finddevice_window",
+  "services.xiaomi_cloud_builtin_dependency",
+  "services.gesture.fod_touch_arming",
+  "services.gesture.double_tap_to_wake",
+]
+
+[[increments]]
+id = "services.tsm_account_visibility"
+path = "patches/flyme/services/wallet/tsm_account_visibility/plan.json"
+status = "device_verified_uncommitted"
+evidence = "40 项测试；TSM 可见性恢复而 NFC 保持不可见，交通卡进入 TransitEntryActivity。"
+publishable = false
+
+[[increments]]
+id = "framework.tsm_native_nfc_adapter"
+path = "patches/flyme/framework/nfc_adapter/plan.json"
+status = "device_query_verified_uncommitted"
+evidence = "26 项测试；读到真实 NXP 路由 1，默认钱包提示消失。"
+publishable = false
+
+[[increments]]
+id = "framework.tsm_self_package_order"
+path = "patches/flyme/framework/tsm_self_package/plan.json"
+status = "device_regression_verified_uncommitted"
+evidence = "TSM 自调用不再被误认成共享 UID 下的 NFC 包；保留真实包成员与签名检查。"
+publishable = false
+
+[[increments]]
+id = "framework.tsm_native_vaid"
+path = "patches/flyme/framework/tsm_vaid/plan.json"
+status = "device_query_verified_uncommitted"
+evidence = "真机已读取到 Flyme 提供器的真实 VAID；后续账号授权仍失败。"
+publishable = false
+
+[excluded]
+diagnostic_plans = [
+  "patches/flyme/framework/diagnostics/plan.json",
+  "patches/flyme/framework/tsm_entry_diagnostics/plan.json",
+  "patches/flyme/framework/tsm_vaid/diagnostics-plan.json",
+]
+rejected_experiment = "TSM 独立计数限流：原对话已确认不是根因，并撤回。"
+sepolicy_modules = ["flyme_fuxi_vibrator_hal", "wrion_static_camera", "wrion_systemui_doze_sepolicy"]
+
+[unresolved]
+tsm_account_information = "无法获取账号信息；最后准备的回调诊断尚未安装。"
+wallet_features = ["交通卡", "门卡", "Mi Pay", "车钥匙"]
+finddevice_window_full_device_acceptance = "真实锁定窗口、导航与 FOD 联动未完整验收。"

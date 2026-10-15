@@ -1,0 +1,364 @@
+schema_version = 1
+
+# 小米钱包与账号（MiApps 0.8.19 载荷）。载荷、权限 XML 与 fs_config 取自 HarusoraRepairSchemes/coloros16 的
+# coloros16.xiaomi-apps 插件，去掉 ColorOS 专属项（framework-location.jar、product_mac_permissions.xml、
+# my_region 钱包配置、FidoAsm 删除、ro.harusora.xiaomi_apps.mode 标记），保留 ro.miui.ui.version.* 静态属性。
+# 未包含：framework 作用域补丁（Account 需要的 Intent.getMiuiFlags 等）、services 的 TSM 共享 UID 补丁。
+# 缺少后者时 TSM（sharedUserId android.uid.nfc）在 Flyme 上会因签名不匹配而安装失败。
+# 来源、哈希与风险见 docs/houji-xiaomi-apps-20261015.md。
+
+[plugin]
+id = "flyme12.houji-xiaomi-apps"
+version = "0.1.0"
+engine = ">=0.1.0,<0.2.0"
+description = "小米钱包与账号 MiApps 载荷（Xiaomi 14：支付、TSM、账号、FindDevice、云服务）"
+enabled = true
+order = 1430
+
+[port]
+mutable_partitions = ["system_ext", "product"]
+
+[[steps]]
+id = "install-xiaomi-apps"
+
+[[steps.actions]]
+id = "extract-xiaomi-apps"
+op = "extract_chunked_zip"
+manifest = "asset:apps/xiaomi-apps/xiaomi-apps-0.8.19.zip.toml"
+
+[[steps.actions.mappings]]
+prefix = "system/product/app"
+to = "stage:product/app"
+conflict = "fail"
+
+[[steps.actions.mappings]]
+prefix = "system/product/priv-app"
+to = "stage:product/priv-app"
+conflict = "fail"
+
+[[steps.actions.mappings]]
+prefix = "system/product/etc/permissions"
+to = "stage:product/etc/permissions"
+conflict = "fail"
+
+[[steps.actions.mappings]]
+prefix = "system/system_ext/priv-app"
+to = "stage:system_ext/priv-app"
+conflict = "fail"
+
+[[steps.actions.mappings]]
+prefix = "system/system_ext/app"
+to = "stage:system_ext/app"
+conflict = "fail"
+
+[[steps.actions.mappings]]
+prefix = "system/system_ext/framework"
+to = "stage:system_ext/framework"
+conflict = "fail"
+
+[[steps.actions.mappings]]
+prefix = "system/system_ext/etc/permissions"
+to = "stage:system_ext/etc/permissions"
+conflict = "fail"
+
+[[steps]]
+id = "configure-xiaomi-app-permissions"
+needs = ["install-xiaomi-apps"]
+
+[[steps.actions]]
+id = "copy-xiaomi-app-default-permissions"
+op = "copy"
+from = "asset:common/xiaomi-apps/default-permissions-xiaomi-apps.xml"
+to = "stage:product/etc/default-permissions/default-permissions-xiaomi-apps.xml"
+
+[[steps.actions]]
+id = "copy-xiaomi-app-privapp-denials"
+op = "copy"
+from = "asset:common/xiaomi-apps/privapp-permissions-xiaomi-apps-deny.xml"
+to = "stage:product/etc/permissions/privapp-permissions-xiaomi-apps-deny.xml"
+
+[[steps.actions]]
+id = "copy-xiaomi-cloudservice-privapp-permissions"
+op = "copy"
+from = "asset:common/xiaomi-apps/privapp-permissions-xiaomi-cloudservice.xml"
+to = "stage:product/etc/permissions/privapp-permissions-xiaomi-cloudservice.xml"
+
+[[steps]]
+id = "set-miui-ui-version"
+needs = ["install-xiaomi-apps"]
+
+[[steps.actions]]
+id = "set-miui-ui-version-code"
+op = "set_prop"
+path = "stage:product/etc/build.prop"
+key = "ro.miui.ui.version.code"
+value = "816"
+duplicate = "fail"
+
+[[steps.actions]]
+id = "set-miui-ui-version-name"
+op = "set_prop"
+path = "stage:product/etc/build.prop"
+key = "ro.miui.ui.version.name"
+value = "V816"
+duplicate = "fail"
+
+[[steps]]
+id = "label-xiaomi-apps"
+needs = ["install-xiaomi-apps"]
+
+[[steps.actions]]
+id = "mode-eidservice"
+op = "set_fs_config"
+path = "stage:product/app/EidService"
+uid = 0
+gid = 0
+mode = "0755"
+
+[[steps.actions]]
+id = "mode-eidservice-apk"
+op = "set_fs_config"
+path = "stage:product/app/EidService/EidService.apk"
+uid = 0
+gid = 0
+mode = "0644"
+
+[[steps.actions]]
+id = "mode-fidoauthen2"
+op = "set_fs_config"
+path = "stage:product/app/FidoAuthen2"
+uid = 0
+gid = 0
+mode = "0755"
+
+[[steps.actions]]
+id = "mode-fidoauthen2-apk"
+op = "set_fs_config"
+path = "stage:product/app/FidoAuthen2/FidoAuthen2.apk"
+uid = 0
+gid = 0
+mode = "0644"
+
+[[steps.actions]]
+id = "mode-minextpay"
+op = "set_fs_config"
+path = "stage:product/app/MINextpay"
+uid = 0
+gid = 0
+mode = "0755"
+
+[[steps.actions]]
+id = "mode-minextpay-apk"
+op = "set_fs_config"
+path = "stage:product/app/MINextpay/MINextpay.apk"
+uid = 0
+gid = 0
+mode = "0644"
+
+[[steps.actions]]
+id = "mode-mipay"
+op = "set_fs_config"
+path = "stage:product/app/MIpay"
+uid = 0
+gid = 0
+mode = "0755"
+
+[[steps.actions]]
+id = "mode-mipay-apk"
+op = "set_fs_config"
+path = "stage:product/app/MIpay/MIpay.apk"
+uid = 0
+gid = 0
+mode = "0644"
+
+[[steps.actions]]
+id = "mode-mitsmclient"
+op = "set_fs_config"
+path = "stage:product/app/MITSMClient"
+uid = 0
+gid = 0
+mode = "0755"
+
+[[steps.actions]]
+id = "mode-mitsmclient-apk"
+op = "set_fs_config"
+path = "stage:product/app/MITSMClient/MITSMClient.apk"
+uid = 0
+gid = 0
+mode = "0644"
+
+[[steps.actions]]
+id = "mode-paymentservice"
+op = "set_fs_config"
+path = "stage:product/app/PaymentService"
+uid = 0
+gid = 0
+mode = "0755"
+
+[[steps.actions]]
+id = "mode-paymentservice-apk"
+op = "set_fs_config"
+path = "stage:product/app/PaymentService/PaymentService.apk"
+uid = 0
+gid = 0
+mode = "0644"
+
+[[steps.actions]]
+id = "mode-uptsmservice"
+op = "set_fs_config"
+path = "stage:product/app/UPTsmService"
+uid = 0
+gid = 0
+mode = "0755"
+
+[[steps.actions]]
+id = "mode-uptsmservice-apk"
+op = "set_fs_config"
+path = "stage:product/app/UPTsmService/UPTsmService.apk"
+uid = 0
+gid = 0
+mode = "0644"
+
+[[steps.actions]]
+id = "mode-xiaomictacompat"
+op = "set_fs_config"
+path = "stage:product/app/XiaomiCtaCompat"
+uid = 0
+gid = 0
+mode = "0755"
+
+[[steps.actions]]
+id = "mode-xiaomictacompat-apk"
+op = "set_fs_config"
+path = "stage:product/app/XiaomiCtaCompat/XiaomiCtaCompat.apk"
+uid = 0
+gid = 0
+mode = "0644"
+
+[[steps.actions]]
+id = "mode-xiaomisimactivateservice"
+op = "set_fs_config"
+path = "stage:product/app/XiaomiSimActivateService"
+uid = 0
+gid = 0
+mode = "0755"
+
+[[steps.actions]]
+id = "mode-xiaomisimactivateservice-apk"
+op = "set_fs_config"
+path = "stage:product/app/XiaomiSimActivateService/XiaomiSimActivateService.apk"
+uid = 0
+gid = 0
+mode = "0644"
+
+[[steps.actions]]
+id = "mode-split-xiaomiserviceframeworkcn"
+op = "set_fs_config"
+path = "stage:product/app/split-XiaomiServiceFrameworkCN"
+uid = 0
+gid = 0
+mode = "0755"
+
+[[steps.actions]]
+id = "mode-split-xiaomiserviceframeworkcn-apk"
+op = "set_fs_config"
+path = "stage:product/app/split-XiaomiServiceFrameworkCN/split-XiaomiServiceFrameworkCN-master.apk"
+uid = 0
+gid = 0
+mode = "0644"
+
+[[steps.actions]]
+id = "mode-miuicloudservice"
+op = "set_fs_config"
+path = "stage:product/priv-app/MIUICloudService"
+uid = 0
+gid = 0
+mode = "0755"
+
+[[steps.actions]]
+id = "mode-miuicloudservice-apk"
+op = "set_fs_config"
+path = "stage:product/priv-app/MIUICloudService/MIUICloudService.apk"
+uid = 0
+gid = 0
+mode = "0644"
+
+[[steps.actions]]
+id = "mode-miuimicloudsync"
+op = "set_fs_config"
+path = "stage:product/priv-app/MIUIMiCloudSync"
+uid = 0
+gid = 0
+mode = "0755"
+
+[[steps.actions]]
+id = "mode-miuimicloudsync-apk"
+op = "set_fs_config"
+path = "stage:product/priv-app/MIUIMiCloudSync/MIUIMiCloudSync.apk"
+uid = 0
+gid = 0
+mode = "0644"
+
+[[steps.actions]]
+id = "mode-miuixiaomiaccount"
+op = "set_fs_config"
+path = "stage:product/priv-app/MIUIXiaomiAccount"
+uid = 0
+gid = 0
+mode = "0755"
+
+[[steps.actions]]
+id = "mode-miuixiaomiaccount-apk"
+op = "set_fs_config"
+path = "stage:product/priv-app/MIUIXiaomiAccount/MIUIXiaomiAccount.apk"
+uid = 0
+gid = 0
+mode = "0644"
+
+[[steps.actions]]
+id = "mode-finddevice"
+op = "set_fs_config"
+path = "stage:system_ext/priv-app/FindDevice"
+uid = 0
+gid = 0
+mode = "0755"
+
+[[steps.actions]]
+id = "mode-finddevice-apk"
+op = "set_fs_config"
+path = "stage:system_ext/priv-app/FindDevice/FindDevice.apk"
+uid = 0
+gid = 0
+mode = "0644"
+
+[[steps.actions]]
+id = "mode-rtmicloudsdk"
+op = "set_fs_config"
+path = "stage:system_ext/priv-app/RtMiCloudSDK"
+uid = 0
+gid = 0
+mode = "0755"
+
+[[steps.actions]]
+id = "mode-rtmicloudsdk-apk"
+op = "set_fs_config"
+path = "stage:system_ext/priv-app/RtMiCloudSDK/RtMiCloudSDK.apk"
+uid = 0
+gid = 0
+mode = "0644"
+
+[[steps.actions]]
+id = "mode-miuisystem"
+op = "set_fs_config"
+path = "stage:system_ext/app/miuisystem"
+uid = 0
+gid = 0
+mode = "0755"
+
+[[steps.actions]]
+id = "mode-miuisystem-apk"
+op = "set_fs_config"
+path = "stage:system_ext/app/miuisystem/miuisystem.apk"
+uid = 0
+gid = 0
+mode = "0644"

@@ -1,0 +1,1831 @@
+{
+  "format": "wrion-integration-evidence",
+  "format_version": 1,
+  "observed_on": "2026-10-15",
+  "timezone": "Asia/Shanghai",
+  "device": "houji",
+  "rom": "Flyme 12.6.0.0A",
+  "activation_ready": false,
+  "notice": "只读观察及接入证据，不是可执行插件，不证明当前候选中每项功能已完成验收。",
+  "conversation": {
+    "claude_session_id": "72b21b5d-5f8b-4aa6-8e75-a34ec90d99e6",
+    "codex_thread_id": "01a13966-2ae1-77f2-9d69-dc8d2327e4d4",
+    "codex_thread_title": "继续处理指定会话记录",
+    "wallet_login": "用户确认短信登录成功",
+    "last_unresolved": "TSM 无法获取账号信息；最后回调诊断未安装。"
+  },
+  "login_verified_pair": {
+    "commit": "9fa37cbd9c33d2d5492b21512dce29cc5c1464c3",
+    "backup_local_path": "D:/Prjs/WrionPatcher-device-backups/resume-20261014/wrion-before-tsm-entry-diag.tar",
+    "backup_sha256": "52a04c77274793a57785e1cf17e50858be7c59d9340148c4b5783ddefa374422",
+    "framework_jar_sha256": "570e4954e8039d749caacf8588de80d20321f16c56f43dd9f8a66ea00c34ed9e",
+    "services_jar_sha256": "57d0d75436fcdae5a10e2756b43df7ea780d0d3108f9e60bcf9ce9b954f1085e"
+  },
+  "observed_device_sha256": {
+    "/system/framework/framework.jar": "57600e26704fba13b746079eb10a5803928a18b9cb65a810bc88011cd812b641",
+    "/system/framework/services.jar": "bc65430fe2aea16863c60b13ad830bfca0f42df4e2e65bf74b76ba9eb3c4d7e6",
+    "/system/bin/cameraserver": "0ba7049217ec3d58f6824db976333c29119cf748545f023dc27ad7220273e4c0",
+    "/system/framework/meizu-telephony-common.jar": "6a9f35c6ec83d9f6784ea7f306346f9799508dd17a1fd20a148c67ebff226b38",
+    "/system_ext/framework/qti-telephony-common.jar": "816e77b7d2aa3709ab5800a05f6ebc1d97691bcf6e0c9f0c13b352fa5005cffc",
+    "/system/priv-app/MiuiCamera/MiuiCamera.apk": "0787631754fa8c6942eeb6c3c1c271b4b8772cd1d1e1e98c600743cee0e623fc",
+    "/system/priv-app/MIUIGallery/MIUIGallery.apk": "f76233a6fb89c37598184761353a056310bacc0b1292640832fa6ee086ce1b19",
+    "/product/app/MIUIXiaomiAccount/MIUIXiaomiAccount.apk": "a5fd990e3ca6714437adc41678a845046eb4ebd4009b8fb58655ab28bec15170",
+    "/product/app/MITSMClient/MITSMClient.apk": "d18dddd6cf70af9132df9efcca62b1d44e8213b482f08c97c8c3e383eb20f033",
+    "/product/app/MIpay/MIpay.apk": "3fcee5874c2663d1930144b8099191ae4ba6bed4247b546cbd7f36064a21622f",
+    "/system_ext/priv-app/FindDevice/FindDevice.apk": "c36e3167a08b52b705f98dd1bbcf0fe957b2a625a4617991e567d6f0864a22ec"
+  },
+  "verified_commit_profiles": [
+    {
+      "scope": "framework",
+      "commit": "9fa37cbd9c33d2d5492b21512dce29cc5c1464c3",
+      "profile": "patches/flyme/framework/finddevice_window/points.json",
+      "profile_sha256": "4587bcf62e3d7050b3fc9401b77978f31948aa997f29f4e6dd0b51e8f6baee0a",
+      "selected_plans": [
+        {
+          "id": "framework.xiaomi_app_compat",
+          "path": "patches/flyme/framework/xiaomi_compat/plan.json",
+          "sha256": "0d869422ebd18e69ad0fca2c0953576f0290e3344b4a53886cc0ade352af85e9"
+        },
+        {
+          "id": "framework.xiaomi_account_telephony_fallback",
+          "path": "patches/flyme/framework/telephony_fallback/plan.json",
+          "sha256": "fb27ebe3228f5cbbbb94091ff48ba42d4a3a4595c635947c7c237f3d9489590e"
+        },
+        {
+          "id": "framework.xiaomi_account_device_name",
+          "path": "patches/flyme/framework/device_name/plan.json",
+          "sha256": "55d3bbbde5c62c43e8193a6fb44d6270729156e0a47656d07aca32d7f172b16f"
+        },
+        {
+          "id": "framework.finddevice_window_transport",
+          "path": "patches/flyme/framework/finddevice_window/plan.json",
+          "sha256": "4bc317537894b93b799cb65715bab3585cd60cee6e848203f7a0c0a1399e949d"
+        }
+      ]
+    },
+    {
+      "scope": "services",
+      "commit": "9fa37cbd9c33d2d5492b21512dce29cc5c1464c3",
+      "profile": "patches/flyme/services/wallet/finddevice_window/points.json",
+      "profile_sha256": "1df265aa03cd2ea284c948e2cb802d2316b8dc4f2c711a1e9e947fb98f276557",
+      "selected_plans": [
+        {
+          "id": "services.fingerprint_lifecycle",
+          "path": "patches/flyme/services/fingerprint/lifecycle/plan.json",
+          "sha256": "a78a349fc8ebb0033163abdf5890db719fb1fe01e86811d4ff34058527a8f6c0"
+        },
+        {
+          "id": "services.face_camera_ownership",
+          "path": "patches/flyme/services/face/camera_ownership/plan.json",
+          "sha256": "771121166c1edd6f42b04de62e84afcb72113bc7870a0b462d69fbabe372f601"
+        },
+        {
+          "id": "services.flyme_color_mode",
+          "path": "patches/flyme/services/display/color_mode/plan.json",
+          "sha256": "30c33d1b32b3e975e80f55fe0312c03ba12ac59182a687bcdf3cb1f4f6766475"
+        },
+        {
+          "id": "services.flyme_wireless_reverse_charging",
+          "path": "patches/flyme/services/charging/wireless_reverse/plan.json",
+          "sha256": "5c483a5690210d000cf5ff018dc91467d4add11d85195923416fb786f1a973e8"
+        },
+        {
+          "id": "services.xiaomi_tsm_shared_uid",
+          "path": "patches/flyme/services/wallet/tsm_shared_uid/plan.json",
+          "sha256": "0eb8600ebeb23aab48d9d2eef39be042b3f0c5a167f2fcbb73a5f78b908f933d"
+        },
+        {
+          "id": "services.xiaomi_account_library",
+          "path": "patches/flyme/services/wallet/account_library/plan.json",
+          "sha256": "a61406a77c33bcc5a2955637a8a682db53d4fe2b4cc5abf0fbc68c366f3fc9a7"
+        },
+        {
+          "id": "services.finddevice_window",
+          "path": "patches/flyme/services/wallet/finddevice_window/plan.json",
+          "sha256": "ae504b818db4db0d49b03a6a974cc79f940203309c1417a2d26ddab6ccf77291"
+        },
+        {
+          "id": "services.xiaomi_cloud_builtin_dependency",
+          "path": "patches/flyme/services/wallet/cloud_sdk_dependency/plan.json",
+          "sha256": "2574504d4cec9cd311562fb466f4cd35b1b6c066212fca3e70c894c3bfe18308"
+        },
+        {
+          "id": "services.gesture.fod_touch_arming",
+          "path": "patches/flyme/services/gesture/fod_touch_arming/plan.json",
+          "sha256": "7c2bec3f18d570e8876dc46ce3c7ae43a509c2a6b8580c7e386ce3bf67ff53b7"
+        },
+        {
+          "id": "services.gesture.double_tap_to_wake",
+          "path": "patches/flyme/services/gesture/double_tap_to_wake/plan.json",
+          "sha256": "a665a7a305935bdc55605e8ede2669ccef9d07a7542fef0426432e6af4751719"
+        }
+      ]
+    }
+  ],
+  "later_increment_source_snapshots": [
+    {
+      "id": "services.tsm_account_visibility",
+      "status": "device_verified_uncommitted",
+      "publishable": false,
+      "observed_worktree_sha256": {
+        "patches/flyme/services/fingerprint/helper/StaticFingerprintBridge.java": "d5ec5ddfc666bdfd44ffefbd01ee1ea5eb6ab563495af4471119b6b5d33bfdc2",
+        "patches/flyme/services/wallet/shared/XiaomiPlatformSigner.java": "da18dbb73f7f0add33558ed365a8955018cf662be508a3184b3820f636aa2e56",
+        "patches/flyme/services/wallet/tsm_account_visibility/XiaomiTsmAccountVisibility.java": "e38e57ac399ee91890587e644c65063f5f3e15cfe163321f858e58eb93494d17",
+        "patches/flyme/services/wallet/tsm_account_visibility/plan.json": "02c7accf981e5227e5fa52f8f4a3dfddaef82e664c912009fb1784ddc0024780"
+      }
+    },
+    {
+      "id": "framework.tsm_native_nfc_adapter",
+      "status": "device_query_verified_uncommitted",
+      "publishable": false,
+      "observed_worktree_sha256": {
+        "patches/flyme/framework/nfc_adapter/MiNfcAdapter.java": "294092c8d6c105334d5ef673c1ead6efe0eb6b8143af2f28e61b59050bcb0533",
+        "patches/flyme/framework/nfc_adapter/plan.json": "a3ea9401d628b9b471e7676011892c8778c39ebf91bfbf1eecc49aa11b25aa0d",
+        "patches/flyme/framework/xiaomi_compat/XiaomiAppProperties.java": "f6fcf92b2497f9213cfb959f5b53b68630aec8347f571d49cec1f9e0e29a388d"
+      }
+    },
+    {
+      "id": "framework.tsm_self_package_order",
+      "status": "device_regression_verified_uncommitted",
+      "publishable": false,
+      "observed_worktree_sha256": {
+        "patches/flyme/framework/tsm_self_package/plan.json": "a4655d94e09ee6b759aa49ceae0527cadfea6ea03a1c3b3e5d51d821fd429771",
+        "patches/flyme/framework/xiaomi_compat/XiaomiAppProperties.java": "f6fcf92b2497f9213cfb959f5b53b68630aec8347f571d49cec1f9e0e29a388d"
+      }
+    },
+    {
+      "id": "framework.tsm_native_vaid",
+      "status": "device_query_verified_uncommitted",
+      "publishable": false,
+      "observed_worktree_sha256": {
+        "patches/flyme/framework/tsm_vaid/XiaomiTsmVaid.java": "88b20e6d55fe422a8458c907ba39f43d0b0aed0e3d8066df887f36a0739c6a3a",
+        "patches/flyme/framework/tsm_vaid/plan.json": "b9332b3de762a8317c436f92da2de3fe43523e5ca52fb0d3fcc82d93108e5819"
+      }
+    }
+  ],
+  "modules": [
+    {
+      "id": "flyme_fuxi_vibrator_hal",
+      "observed_file_count": 109,
+      "files": [
+        {
+          "module_relative_path": "system/vendor/lib64/vendor.aac.hardware.richtap.vibrator-V1-ndk_platform.so",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/001_Awaken.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/002_Awaken_relax_version.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/00_Awaited.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/01_Piano.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/01_Triumph.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/02_Digital.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/02_Reminder.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/03_Doorbell.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/03_Flyme.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/04_Music_box.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/04_Promotion.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/05_Little_Crystal.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/05_Technology.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/06_Arrival.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/06_Guitar.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/07_Cleverer.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/07_Marimba.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/08_Agile.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/08_Mischief.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/09_Crystal.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/09_Red_Wine_Cork.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/10_back.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/10_Progress.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/10_Tapping.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/11_Drop.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/11_gesture.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/11_The_kittens.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/12_Connect.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/12_Morning_song.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/13_Call_of_love.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/13_Spining.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/14_Gift.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/14_nav_multitask.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/14_Tumbler.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/15_Blow.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/15_clear_bg_apps.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/15_Journey_begins.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/16_New_life.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/16_Pure.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/17_Beating.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/17_Heartbeat.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/18_East_Ville_memory.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/18_Naughty.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/19_Chocolate.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/19_Waltz.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/1_back.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/20_Code_Word.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/20_The_cantor.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/21_Corner.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/21_Passion.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/22_Empire.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/22_Journey.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/23_Game.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/23_Jump.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/24_Laputa.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/24_Rain_dance.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/25_Meteor.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/25_Twilight_dance.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/26_Foredawn.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/26_Ripples.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/27_Home.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/27_Shining.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/28_Blues.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/28_Silent_Night.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/29_Dash.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/29_The_North_Star.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/2_back.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/30_Machine.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/30_The_time_tunne.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/31_Bell.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/31_Telephone.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/32_Beeper.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/32_celesta.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/33_After_school.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/34_Mario.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/35_Nighty_night.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/36_Soaring.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/37_Childhood.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/38_Morning_run.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/39_Sweetheart.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/3_desktop_long_press.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/3_press.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/40_Curtain_call.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/4_dot.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/6_widget_sync.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/7_volume.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/cleanup_ring.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/81_fingerprint_error.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/8_character_index.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/9_scale_picture.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/A_simple_password.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/B_homescreen_icon_snap.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/coin_ring.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/C_camera.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/D_click.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/floaring_light_relaxed_version.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/floating_light.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/flyme_lang_lang.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/infinite_passion.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/mEngine_demo.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/mpacc_ring.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/mute_ring.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/plug_usb_ring.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/ring_nosystem.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/aac/ring_phone.he",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/init/vendor.qti.hardware.vibrator.service.rc",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/etc/vintf/manifest/vendor.qti.hardware.vibrator.service.xml",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        },
+        {
+          "module_relative_path": "system/vendor/bin/hw/vendor.qti.hardware.vibrator.service",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        }
+      ]
+    },
+    {
+      "id": "wrion_leica_stream",
+      "observed_file_count": 1,
+      "files": [
+        {
+          "module_relative_path": "system/bin/cameraserver",
+          "partition": "system",
+          "stage_target": "stage:system/system/bin/cameraserver",
+          "handling": "按处理方案重新生成或审核导入"
+        }
+      ]
+    },
+    {
+      "id": "wrion_miui_camera",
+      "observed_file_count": 41,
+      "files": [
+        {
+          "module_relative_path": "system/etc/permissions/privapp-permissions-wrion-miuicamera.xml",
+          "partition": "system",
+          "stage_target": "stage:system/system/etc/permissions/privapp-permissions-wrion-miuicamera.xml",
+          "handling": "按处理方案重新生成或审核导入"
+        },
+        {
+          "module_relative_path": "system/product/etc/device_features/houji.xml",
+          "partition": "product",
+          "stage_target": "stage:product/etc/device_features/houji.xml",
+          "handling": "按处理方案重新生成或审核导入"
+        },
+        {
+          "module_relative_path": "system/priv-app/MiuiCamera/MiuiCamera.apk",
+          "partition": "system",
+          "stage_target": "stage:system/system/priv-app/MiuiCamera/MiuiCamera.apk",
+          "handling": "按处理方案重新生成或审核导入"
+        },
+        {
+          "module_relative_path": "system/priv-app/MIUIGallery/MIUIGallery.apk",
+          "partition": "system",
+          "stage_target": "stage:system/system/priv-app/MIUIGallery/MIUIGallery.apk",
+          "handling": "按处理方案重新生成或审核导入"
+        },
+        {
+          "module_relative_path": "system/priv-app/MIUIGallery/lib/arm64/libMiMainColor.so",
+          "partition": "system",
+          "stage_target": "stage:system/system/priv-app/MIUIGallery/lib/arm64/libMiMainColor.so",
+          "handling": "按处理方案重新生成或审核导入"
+        },
+        {
+          "module_relative_path": "system/priv-app/MIUIGallery/lib/arm64/libmigalleryffmpeg.so",
+          "partition": "system",
+          "stage_target": "stage:system/system/priv-app/MIUIGallery/lib/arm64/libmigalleryffmpeg.so",
+          "handling": "按处理方案重新生成或审核导入"
+        },
+        {
+          "module_relative_path": "system/priv-app/MIUIGallery/lib/arm64/libHDR.so",
+          "partition": "system",
+          "stage_target": "stage:system/system/priv-app/MIUIGallery/lib/arm64/libHDR.so",
+          "handling": "按处理方案重新生成或审核导入"
+        },
+        {
+          "module_relative_path": "system/priv-app/MIUIGallery/lib/arm64/libVideoRetrieval.so",
+          "partition": "system",
+          "stage_target": "stage:system/system/priv-app/MIUIGallery/lib/arm64/libVideoRetrieval.so",
+          "handling": "按处理方案重新生成或审核导入"
+        },
+        {
+          "module_relative_path": "system/priv-app/MIUIGallery/lib/arm64/libnexeditorsdk.so",
+          "partition": "system",
+          "stage_target": "stage:system/system/priv-app/MIUIGallery/lib/arm64/libnexeditorsdk.so",
+          "handling": "按处理方案重新生成或审核导入"
+        },
+        {
+          "module_relative_path": "system/priv-app/MIUIGallery/lib/arm64/libmievent.so",
+          "partition": "system",
+          "stage_target": "stage:system/system/priv-app/MIUIGallery/lib/arm64/libmievent.so",
+          "handling": "按处理方案重新生成或审核导入"
+        },
+        {
+          "module_relative_path": "system/priv-app/MIUIGallery/lib/arm64/libvideo_extra_interpolator_mialgo.so",
+          "partition": "system",
+          "stage_target": "stage:system/system/priv-app/MIUIGallery/lib/arm64/libvideo_extra_interpolator_mialgo.so",
+          "handling": "按处理方案重新生成或审核导入"
+        },
+        {
+          "module_relative_path": "system/priv-app/MIUIGallery/lib/arm64/libGalleryFrameRetriever.so",
+          "partition": "system",
+          "stage_target": "stage:system/system/priv-app/MIUIGallery/lib/arm64/libGalleryFrameRetriever.so",
+          "handling": "按处理方案重新生成或审核导入"
+        },
+        {
+          "module_relative_path": "system/priv-app/MIUIGallery/lib/arm64/libmiocr.so",
+          "partition": "system",
+          "stage_target": "stage:system/system/priv-app/MIUIGallery/lib/arm64/libmiocr.so",
+          "handling": "按处理方案重新生成或审核导入"
+        },
+        {
+          "module_relative_path": "system/priv-app/MIUIGallery/lib/arm64/libsqliteX.so",
+          "partition": "system",
+          "stage_target": "stage:system/system/priv-app/MIUIGallery/lib/arm64/libsqliteX.so",
+          "handling": "按处理方案重新生成或审核导入"
+        },
+        {
+          "module_relative_path": "system/priv-app/MIUIGallery/lib/arm64/libc++_shared.so",
+          "partition": "system",
+          "stage_target": "stage:system/system/priv-app/MIUIGallery/lib/arm64/libc++_shared.so",
+          "handling": "按处理方案重新生成或审核导入"
+        },
+        {
+          "module_relative_path": "system/priv-app/MIUIGallery/lib/arm64/libvideo_converter.so",
+          "partition": "system",
+          "stage_target": "stage:system/system/priv-app/MIUIGallery/lib/arm64/libvideo_converter.so",
+          "handling": "按处理方案重新生成或审核导入"
+        },
+        {
+          "module_relative_path": "system/priv-app/MIUIGallery/lib/arm64/libgallery_block_sdk.so",
+          "partition": "system",
+          "stage_target": "stage:system/system/priv-app/MIUIGallery/lib/arm64/libgallery_block_sdk.so",
+          "handling": "按处理方案重新生成或审核导入"
+        },
+        {
+          "module_relative_path": "system/priv-app/MIUIGallery/lib/arm64/libmmkv.so",
+          "partition": "system",
+          "stage_target": "stage:system/system/priv-app/MIUIGallery/lib/arm64/libmmkv.so",
+          "handling": "按处理方案重新生成或审核导入"
+        },
+        {
+          "module_relative_path": "system/priv-app/MIUIGallery/lib/arm64/libjniloader.so",
+          "partition": "system",
+          "stage_target": "stage:system/system/priv-app/MIUIGallery/lib/arm64/libjniloader.so",
+          "handling": "按处理方案重新生成或审核导入"
+        },
+        {
+          "module_relative_path": "system/priv-app/MIUIGallery/lib/arm64/libmitranscoder.so",
+          "partition": "system",
+          "stage_target": "stage:system/system/priv-app/MIUIGallery/lib/arm64/libmitranscoder.so",
+          "handling": "按处理方案重新生成或审核导入"
+        },
+        {
+          "module_relative_path": "system/priv-app/MIUIGallery/lib/arm64/libnexcralbody_mc_jb.so",
+          "partition": "system",
+          "stage_target": "stage:system/system/priv-app/MIUIGallery/lib/arm64/libnexcralbody_mc_jb.so",
+          "handling": "按处理方案重新生成或审核导入"
+        },
+        {
+          "module_relative_path": "system/priv-app/MIUIGallery/lib/arm64/libClipPostSDK.so",
+          "partition": "system",
+          "stage_target": "stage:system/system/priv-app/MIUIGallery/lib/arm64/libClipPostSDK.so",
+          "handling": "按处理方案重新生成或审核导入"
+        },
+        {
+          "module_relative_path": "system/priv-app/MIUIGallery/lib/arm64/libmiocr_wrapper.so",
+          "partition": "system",
+          "stage_target": "stage:system/system/priv-app/MIUIGallery/lib/arm64/libmiocr_wrapper.so",
+          "handling": "按处理方案重新生成或审核导入"
+        },
+        {
+          "module_relative_path": "system/priv-app/MIUIGallery/lib/arm64/libretriever_phone.so",
+          "partition": "system",
+          "stage_target": "stage:system/system/priv-app/MIUIGallery/lib/arm64/libretriever_phone.so",
+          "handling": "按处理方案重新生成或审核导入"
+        },
+        {
+          "module_relative_path": "system/priv-app/MIUIGallery/lib/arm64/libbindcore.so",
+          "partition": "system",
+          "stage_target": "stage:system/system/priv-app/MIUIGallery/lib/arm64/libbindcore.so",
+          "handling": "按处理方案重新生成或审核导入"
+        },
+        {
+          "module_relative_path": "system/priv-app/MIUIGallery/lib/arm64/libvideo_extra_color_converter.so",
+          "partition": "system",
+          "stage_target": "stage:system/system/priv-app/MIUIGallery/lib/arm64/libvideo_extra_color_converter.so",
+          "handling": "按处理方案重新生成或审核导入"
+        },
+        {
+          "module_relative_path": "system/priv-app/MIUIGallery/lib/arm64/libvlcjni.so",
+          "partition": "system",
+          "stage_target": "stage:system/system/priv-app/MIUIGallery/lib/arm64/libvlcjni.so",
+          "handling": "按处理方案重新生成或审核导入"
+        },
+        {
+          "module_relative_path": "system/priv-app/MIUIGallery/lib/arm64/libvideo_extra_interpolator.so",
+          "partition": "system",
+          "stage_target": "stage:system/system/priv-app/MIUIGallery/lib/arm64/libvideo_extra_interpolator.so",
+          "handling": "按处理方案重新生成或审核导入"
+        },
+        {
+          "module_relative_path": "system/system_ext/etc/permissions/wrion-miui-rom-library.xml",
+          "partition": "system_ext",
+          "stage_target": "stage:system_ext/etc/permissions/wrion-miui-rom-library.xml",
+          "handling": "按处理方案重新生成或审核导入"
+        },
+        {
+          "module_relative_path": "system/system_ext/etc/permissions/miui-cameraopt.xml",
+          "partition": "system_ext",
+          "stage_target": "stage:system_ext/etc/permissions/miui-cameraopt.xml",
+          "handling": "按处理方案重新生成或审核导入"
+        },
+        {
+          "module_relative_path": "system/system_ext/etc/public.libraries-xiaomi.txt",
+          "partition": "system_ext",
+          "stage_target": "stage:system_ext/etc/public.libraries-xiaomi.txt",
+          "handling": "按处理方案重新生成或审核导入"
+        },
+        {
+          "module_relative_path": "system/system_ext/priv-app/RtMiCloudSDK/RtMiCloudSDK.apk",
+          "partition": "system_ext",
+          "stage_target": "stage:system_ext/priv-app/RtMiCloudSDK/RtMiCloudSDK.apk",
+          "handling": "按处理方案重新生成或审核导入"
+        },
+        {
+          "module_relative_path": "system/system_ext/lib64/vendor.xiaomi.hardware.campostproc@1.0.so",
+          "partition": "system_ext",
+          "stage_target": "stage:system_ext/lib64/vendor.xiaomi.hardware.campostproc@1.0.so",
+          "handling": "按处理方案重新生成或审核导入"
+        },
+        {
+          "module_relative_path": "system/system_ext/lib64/libcameraopt.so",
+          "partition": "system_ext",
+          "stage_target": "stage:system_ext/lib64/libcameraopt.so",
+          "handling": "按处理方案重新生成或审核导入"
+        },
+        {
+          "module_relative_path": "system/system_ext/lib64/libcameraopt_jni.so",
+          "partition": "system_ext",
+          "stage_target": "stage:system_ext/lib64/libcameraopt_jni.so",
+          "handling": "按处理方案重新生成或审核导入"
+        },
+        {
+          "module_relative_path": "system/system_ext/lib64/libcamera_algoup_jni.xiaomi.so",
+          "partition": "system_ext",
+          "stage_target": "stage:system_ext/lib64/libcamera_algoup_jni.xiaomi.so",
+          "handling": "按处理方案重新生成或审核导入"
+        },
+        {
+          "module_relative_path": "system/system_ext/lib64/libmicampostproc_client.so",
+          "partition": "system_ext",
+          "stage_target": "stage:system_ext/lib64/libmicampostproc_client.so",
+          "handling": "按处理方案重新生成或审核导入"
+        },
+        {
+          "module_relative_path": "system/system_ext/lib64/libcamera_mianode_jni.xiaomi.so",
+          "partition": "system_ext",
+          "stage_target": "stage:system_ext/lib64/libcamera_mianode_jni.xiaomi.so",
+          "handling": "按处理方案重新生成或审核导入"
+        },
+        {
+          "module_relative_path": "system/system_ext/framework/miui-framework.jar",
+          "partition": "system_ext",
+          "stage_target": "stage:system_ext/framework/miui-framework.jar",
+          "handling": "按处理方案重新生成或审核导入"
+        },
+        {
+          "module_relative_path": "system/system_ext/framework/miui-cameraopt.jar",
+          "partition": "system_ext",
+          "stage_target": "stage:system_ext/framework/miui-cameraopt.jar",
+          "handling": "按处理方案重新生成或审核导入"
+        },
+        {
+          "module_relative_path": "system/system_ext/app/miuisystem/miuisystem.apk",
+          "partition": "system_ext",
+          "stage_target": "stage:system_ext/app/miuisystem/miuisystem.apk",
+          "handling": "按处理方案重新生成或审核导入"
+        }
+      ]
+    },
+    {
+      "id": "wrion_static_camera",
+      "observed_file_count": 5,
+      "files": [
+        {
+          "module_relative_path": "system/app/Camera/.replace",
+          "partition": "system",
+          "stage_target": null,
+          "handling": "Magisk 控制标记，不导入镜像"
+        },
+        {
+          "module_relative_path": "system/etc/permissions/privapp-permissions-wrion-camera.xml",
+          "partition": "system",
+          "stage_target": "stage:system/system/etc/permissions/privapp-permissions-wrion-camera.xml",
+          "handling": "按处理方案重新生成或审核导入"
+        },
+        {
+          "module_relative_path": "system/etc/selinux/plat_seapp_contexts",
+          "partition": "system",
+          "stage_target": "stage:system/system/etc/selinux/plat_seapp_contexts",
+          "handling": "合并包名限定规则，禁止整文件覆盖"
+        },
+        {
+          "module_relative_path": "system/priv-app/Camera/.replace",
+          "partition": "system",
+          "stage_target": null,
+          "handling": "Magisk 控制标记，不导入镜像"
+        },
+        {
+          "module_relative_path": "system/priv-app/Camera/Camera.apk",
+          "partition": "system",
+          "stage_target": "stage:system/system/priv-app/Camera/Camera.apk",
+          "handling": "按处理方案重新生成或审核导入"
+        }
+      ]
+    },
+    {
+      "id": "wrion_static_composer_als",
+      "observed_file_count": 1,
+      "files": [
+        {
+          "module_relative_path": "system/vendor/bin/hw/vendor.qti.hardware.display.composer-service",
+          "partition": "vendor",
+          "stage_target": null,
+          "handling": "用户固定保护分区基线，本方案不写入"
+        }
+      ]
+    },
+    {
+      "id": "wrion_static_flyme_ril_meizu",
+      "observed_file_count": 1,
+      "files": [
+        {
+          "module_relative_path": "system/framework/meizu-telephony-common.jar",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/meizu-telephony-common.jar",
+          "handling": "按处理方案重新生成或审核导入"
+        }
+      ]
+    },
+    {
+      "id": "wrion_static_flyme_ril_qti",
+      "observed_file_count": 1,
+      "files": [
+        {
+          "module_relative_path": "system/system_ext/framework/qti-telephony-common.jar",
+          "partition": "system_ext",
+          "stage_target": "stage:system_ext/framework/qti-telephony-common.jar",
+          "handling": "按处理方案重新生成或审核导入"
+        }
+      ]
+    },
+    {
+      "id": "wrion_static_framework",
+      "observed_file_count": 82,
+      "files": [
+        {
+          "module_relative_path": "system/framework/framework.jar",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/framework.jar",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/arm64/boot.art",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/arm64/boot.art",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/arm64/boot.oat",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/arm64/boot.oat",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/arm64/boot.vdex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/arm64/boot.vdex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/arm64/boot-framework-adservices.art",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/arm64/boot-framework-adservices.art",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/arm64/boot-framework-adservices.oat",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/arm64/boot-framework-adservices.oat",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/arm64/boot-framework-adservices.vdex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/arm64/boot-framework-adservices.vdex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/com.android.location.provider.art",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/com.android.location.provider.art",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/com.android.location.provider.odex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/com.android.location.provider.odex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/com.android.location.provider.vdex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/com.android.location.provider.vdex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/services.art",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/services.art",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/services.odex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/services.odex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/services.vdex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/services.vdex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.adservices@javalib@service-adservices.jar@classes.art",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.adservices@javalib@service-adservices.jar@classes.art",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.adservices@javalib@service-adservices.jar@classes.odex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.adservices@javalib@service-adservices.jar@classes.odex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.adservices@javalib@service-adservices.jar@classes.vdex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.adservices@javalib@service-adservices.jar@classes.vdex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.adservices@javalib@service-sdksandbox.jar@classes.art",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.adservices@javalib@service-sdksandbox.jar@classes.art",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.adservices@javalib@service-sdksandbox.jar@classes.odex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.adservices@javalib@service-sdksandbox.jar@classes.odex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.adservices@javalib@service-sdksandbox.jar@classes.vdex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.adservices@javalib@service-sdksandbox.jar@classes.vdex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.appsearch@javalib@service-appsearch.jar@classes.art",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.appsearch@javalib@service-appsearch.jar@classes.art",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.appsearch@javalib@service-appsearch.jar@classes.odex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.appsearch@javalib@service-appsearch.jar@classes.odex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.appsearch@javalib@service-appsearch.jar@classes.vdex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.appsearch@javalib@service-appsearch.jar@classes.vdex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.art@javalib@service-art.jar@classes.art",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.art@javalib@service-art.jar@classes.art",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.art@javalib@service-art.jar@classes.odex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.art@javalib@service-art.jar@classes.odex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.art@javalib@service-art.jar@classes.vdex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.art@javalib@service-art.jar@classes.vdex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.bt@javalib@service-bluetooth.jar@classes.art",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.bt@javalib@service-bluetooth.jar@classes.art",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.bt@javalib@service-bluetooth.jar@classes.odex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.bt@javalib@service-bluetooth.jar@classes.odex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.bt@javalib@service-bluetooth.jar@classes.vdex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.bt@javalib@service-bluetooth.jar@classes.vdex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.compos@javalib@service-compos.jar@classes.art",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.compos@javalib@service-compos.jar@classes.art",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.compos@javalib@service-compos.jar@classes.odex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.compos@javalib@service-compos.jar@classes.odex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.compos@javalib@service-compos.jar@classes.vdex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.compos@javalib@service-compos.jar@classes.vdex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.configinfrastructure@javalib@service-configinfrastructure.jar@classes.art",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.configinfrastructure@javalib@service-configinfrastructure.jar@classes.art",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.configinfrastructure@javalib@service-configinfrastructure.jar@classes.odex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.configinfrastructure@javalib@service-configinfrastructure.jar@classes.odex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.configinfrastructure@javalib@service-configinfrastructure.jar@classes.vdex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.configinfrastructure@javalib@service-configinfrastructure.jar@classes.vdex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.crashrecovery@javalib@service-crashrecovery.jar@classes.art",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.crashrecovery@javalib@service-crashrecovery.jar@classes.art",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.crashrecovery@javalib@service-crashrecovery.jar@classes.odex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.crashrecovery@javalib@service-crashrecovery.jar@classes.odex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.crashrecovery@javalib@service-crashrecovery.jar@classes.vdex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.crashrecovery@javalib@service-crashrecovery.jar@classes.vdex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.devicelock@javalib@service-devicelock.jar@classes.art",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.devicelock@javalib@service-devicelock.jar@classes.art",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.devicelock@javalib@service-devicelock.jar@classes.odex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.devicelock@javalib@service-devicelock.jar@classes.odex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.devicelock@javalib@service-devicelock.jar@classes.vdex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.devicelock@javalib@service-devicelock.jar@classes.vdex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.healthfitness@javalib@service-healthfitness.jar@classes.art",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.healthfitness@javalib@service-healthfitness.jar@classes.art",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.healthfitness@javalib@service-healthfitness.jar@classes.odex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.healthfitness@javalib@service-healthfitness.jar@classes.odex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.healthfitness@javalib@service-healthfitness.jar@classes.vdex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.healthfitness@javalib@service-healthfitness.jar@classes.vdex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.media@javalib@service-media-s.jar@classes.art",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.media@javalib@service-media-s.jar@classes.art",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.media@javalib@service-media-s.jar@classes.odex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.media@javalib@service-media-s.jar@classes.odex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.media@javalib@service-media-s.jar@classes.vdex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.media@javalib@service-media-s.jar@classes.vdex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.ondevicepersonalization@javalib@service-ondevicepersonalization.jar@classes.art",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.ondevicepersonalization@javalib@service-ondevicepersonalization.jar@classes.art",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.ondevicepersonalization@javalib@service-ondevicepersonalization.jar@classes.odex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.ondevicepersonalization@javalib@service-ondevicepersonalization.jar@classes.odex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.ondevicepersonalization@javalib@service-ondevicepersonalization.jar@classes.vdex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.ondevicepersonalization@javalib@service-ondevicepersonalization.jar@classes.vdex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.os.statsd@javalib@service-statsd.jar@classes.art",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.os.statsd@javalib@service-statsd.jar@classes.art",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.os.statsd@javalib@service-statsd.jar@classes.odex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.os.statsd@javalib@service-statsd.jar@classes.odex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.os.statsd@javalib@service-statsd.jar@classes.vdex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.os.statsd@javalib@service-statsd.jar@classes.vdex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.permission@javalib@service-permission.jar@classes.art",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.permission@javalib@service-permission.jar@classes.art",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.rkpd@javalib@service-rkp.jar@classes.art",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.rkpd@javalib@service-rkp.jar@classes.art",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.permission@javalib@service-permission.jar@classes.odex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.permission@javalib@service-permission.jar@classes.odex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.permission@javalib@service-permission.jar@classes.vdex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.permission@javalib@service-permission.jar@classes.vdex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.profiling@javalib@service-profiling.jar@classes.vdex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.profiling@javalib@service-profiling.jar@classes.vdex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.rkpd@javalib@service-rkp.jar@classes.odex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.rkpd@javalib@service-rkp.jar@classes.odex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.rkpd@javalib@service-rkp.jar@classes.vdex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.rkpd@javalib@service-rkp.jar@classes.vdex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.scheduling@javalib@service-scheduling.jar@classes.art",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.scheduling@javalib@service-scheduling.jar@classes.art",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.scheduling@javalib@service-scheduling.jar@classes.vdex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.scheduling@javalib@service-scheduling.jar@classes.vdex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.tethering@javalib@service-connectivity.jar@classes.odex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.tethering@javalib@service-connectivity.jar@classes.odex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.virt@javalib@service-virtualization.jar@classes.art",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.virt@javalib@service-virtualization.jar@classes.art",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.virt@javalib@service-virtualization.jar@classes.odex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.virt@javalib@service-virtualization.jar@classes.odex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.virt@javalib@service-virtualization.jar@classes.vdex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.virt@javalib@service-virtualization.jar@classes.vdex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.wifi@javalib@service-wifi.jar@classes.art",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.wifi@javalib@service-wifi.jar@classes.art",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.wifi@javalib@service-wifi.jar@classes.odex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.wifi@javalib@service-wifi.jar@classes.odex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.flyme.runtime@javalib@service-flyme.jar@classes.art",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.flyme.runtime@javalib@service-flyme.jar@classes.art",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.flyme.runtime@javalib@service-flyme.jar@classes.odex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.flyme.runtime@javalib@service-flyme.jar@classes.odex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.profiling@javalib@service-profiling.jar@classes.art",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.profiling@javalib@service-profiling.jar@classes.art",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.profiling@javalib@service-profiling.jar@classes.odex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.profiling@javalib@service-profiling.jar@classes.odex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.scheduling@javalib@service-scheduling.jar@classes.odex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.scheduling@javalib@service-scheduling.jar@classes.odex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.tethering@javalib@service-connectivity.jar@classes.art",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.tethering@javalib@service-connectivity.jar@classes.art",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.tethering@javalib@service-connectivity.jar@classes.vdex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.tethering@javalib@service-connectivity.jar@classes.vdex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.uwb@javalib@service-ranging.jar@classes.art",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.uwb@javalib@service-ranging.jar@classes.art",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.uwb@javalib@service-ranging.jar@classes.odex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.uwb@javalib@service-ranging.jar@classes.odex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.uwb@javalib@service-ranging.jar@classes.vdex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.uwb@javalib@service-ranging.jar@classes.vdex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.uwb@javalib@service-uwb.jar@classes.art",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.uwb@javalib@service-uwb.jar@classes.art",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.uwb@javalib@service-uwb.jar@classes.odex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.uwb@javalib@service-uwb.jar@classes.odex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.uwb@javalib@service-uwb.jar@classes.vdex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.uwb@javalib@service-uwb.jar@classes.vdex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.android.wifi@javalib@service-wifi.jar@classes.vdex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.android.wifi@javalib@service-wifi.jar@classes.vdex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        },
+        {
+          "module_relative_path": "system/framework/oat/arm64/apex@com.flyme.runtime@javalib@service-flyme.jar@classes.vdex",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/oat/arm64/apex@com.flyme.runtime@javalib@service-flyme.jar@classes.vdex",
+          "handling": "当前候选部署；仅作盘点，必须与 ART 配套且不能直接作为登录成功版本导入"
+        }
+      ]
+    },
+    {
+      "id": "wrion_static_services",
+      "observed_file_count": 1,
+      "files": [
+        {
+          "module_relative_path": "system/framework/services.jar",
+          "partition": "system",
+          "stage_target": "stage:system/system/framework/services.jar",
+          "handling": "按处理方案重新生成或审核导入"
+        }
+      ]
+    },
+    {
+      "id": "wrion_static_settings",
+      "observed_file_count": 2,
+      "files": [
+        {
+          "module_relative_path": "system/etc/selinux/plat_seapp_contexts",
+          "partition": "system",
+          "stage_target": "stage:system/system/etc/selinux/plat_seapp_contexts",
+          "handling": "合并包名限定规则，禁止整文件覆盖"
+        },
+        {
+          "module_relative_path": "system/system_ext/priv-app/Settings/Settings.apk",
+          "partition": "system_ext",
+          "stage_target": "stage:system_ext/priv-app/Settings/Settings.apk",
+          "handling": "按处理方案重新生成或审核导入"
+        }
+      ]
+    },
+    {
+      "id": "wrion_static_systemui",
+      "observed_file_count": 2,
+      "files": [
+        {
+          "module_relative_path": "system/etc/selinux/plat_seapp_contexts",
+          "partition": "system",
+          "stage_target": "stage:system/system/etc/selinux/plat_seapp_contexts",
+          "handling": "合并包名限定规则，禁止整文件覆盖"
+        },
+        {
+          "module_relative_path": "system/system_ext/priv-app/SystemUI/SystemUI.apk",
+          "partition": "system_ext",
+          "stage_target": "stage:system_ext/priv-app/SystemUI/SystemUI.apk",
+          "handling": "按处理方案重新生成或审核导入"
+        }
+      ]
+    },
+    {
+      "id": "wrion_systemui_doze_sepolicy",
+      "observed_file_count": 0,
+      "files": []
+    },
+    {
+      "id": "wrion_xiaomi_account_probe",
+      "observed_file_count": 1,
+      "files": [
+        {
+          "module_relative_path": "system/product/app/MIUIXiaomiAccount/MIUIXiaomiAccount.apk",
+          "partition": "product",
+          "stage_target": "stage:product/app/MIUIXiaomiAccount/MIUIXiaomiAccount.apk",
+          "handling": "按处理方案重新生成或审核导入"
+        }
+      ]
+    },
+    {
+      "id": "wrion_xiaomi_finddevice",
+      "observed_file_count": 7,
+      "files": [
+        {
+          "module_relative_path": "system/system_ext/etc/permissions/wrion-xiaomi-device-credential.xml",
+          "partition": "system_ext",
+          "stage_target": "stage:system_ext/etc/permissions/wrion-xiaomi-device-credential.xml",
+          "handling": "按处理方案重新生成或审核导入"
+        },
+        {
+          "module_relative_path": "system/system_ext/etc/permissions/privapp-permissions-wrion-finddevice.xml",
+          "partition": "system_ext",
+          "stage_target": "stage:system_ext/etc/permissions/privapp-permissions-wrion-finddevice.xml",
+          "handling": "按处理方案重新生成或审核导入"
+        },
+        {
+          "module_relative_path": "system/system_ext/lib64/libfd_openssl_include.so",
+          "partition": "system_ext",
+          "stage_target": "stage:system_ext/lib64/libfd_openssl_include.so",
+          "handling": "按处理方案重新生成或审核导入"
+        },
+        {
+          "module_relative_path": "system/system_ext/lib64/libadvanced_crypto_jni.so",
+          "partition": "system_ext",
+          "stage_target": "stage:system_ext/lib64/libadvanced_crypto_jni.so",
+          "handling": "按处理方案重新生成或审核导入"
+        },
+        {
+          "module_relative_path": "system/system_ext/lib64/libadvanced_crypto.so",
+          "partition": "system_ext",
+          "stage_target": "stage:system_ext/lib64/libadvanced_crypto.so",
+          "handling": "按处理方案重新生成或审核导入"
+        },
+        {
+          "module_relative_path": "system/system_ext/framework/security-device-credential-sdk.jar",
+          "partition": "system_ext",
+          "stage_target": "stage:system_ext/framework/security-device-credential-sdk.jar",
+          "handling": "按处理方案重新生成或审核导入"
+        },
+        {
+          "module_relative_path": "system/system_ext/priv-app/FindDevice/FindDevice.apk",
+          "partition": "system_ext",
+          "stage_target": "stage:system_ext/priv-app/FindDevice/FindDevice.apk",
+          "handling": "按处理方案重新生成或审核导入"
+        }
+      ]
+    },
+    {
+      "id": "wrion_xiaomi_tsm",
+      "observed_file_count": 2,
+      "files": [
+        {
+          "module_relative_path": "system/product/etc/permissions/privapp-permissions-wrion-xiaomi-tsm.xml",
+          "partition": "product",
+          "stage_target": "stage:product/etc/permissions/privapp-permissions-wrion-xiaomi-tsm.xml",
+          "handling": "按处理方案重新生成或审核导入"
+        },
+        {
+          "module_relative_path": "system/product/app/MITSMClient/MITSMClient.apk",
+          "partition": "product",
+          "stage_target": "stage:product/app/MITSMClient/MITSMClient.apk",
+          "handling": "按处理方案重新生成或审核导入"
+        }
+      ]
+    },
+    {
+      "id": "wrion_xiaomi_wallet_probe",
+      "observed_file_count": 1,
+      "files": [
+        {
+          "module_relative_path": "system/product/app/MIpay/MIpay.apk",
+          "partition": "product",
+          "stage_target": "stage:product/app/MIpay/MIpay.apk",
+          "handling": "按处理方案重新生成或审核导入"
+        }
+      ]
+    }
+  ],
+  "exclusions": {
+    "sepolicy_rule_modules": [
+      "flyme_fuxi_vibrator_hal",
+      "wrion_static_camera",
+      "wrion_systemui_doze_sepolicy"
+    ],
+    "runtime_actions": [
+      "Composer system.prop",
+      "相机 post-fs-data.sh resetprop",
+      "振动 meizu-haptic-sync.sh",
+      "SystemUI doze service.sh"
+    ],
+    "experimental_changes": "独立计数限流试验已撤回；不发布临时诊断。"
+  },
+  "checks_performed_this_task": [
+    "只读核对会话与源码",
+    "只读枚举设备模块路径及关键文件 SHA-256",
+    "从历史归档核对登录成功版本 JAR SHA-256",
+    "校验所列计划存在于指定提交或当前源码快照"
+  ],
+  "not_performed": [
+    "未运行新增系统补丁功能测试",
+    "未构建最终 ROM",
+    "未安装模块或重启",
+    "未激活新增插件"
+  ]
+}

@@ -1,0 +1,62 @@
+schema_version = 1
+
+# 徕卡（小米）相机与相册整包：MiuiCamera.apk（前摄虚化已合入）、MIUIGallery.apk 及其 arm64 库，
+# 按用户要求与徕卡绑定为同一方案。用 Builder 内置发布密钥签名，证书与原厂一致。
+# 同时含 privapp 权限 XML 与 device_features/houji.xml。
+# 不含的内容由独立插件负责：
+#   - 小米系统库（system_ext）：flyme12.houji-xiaomi-libraries
+#   - cameraserver 流桥接修补：flyme12.houji-leica-cameraserver
+#   - sepolicy：未进入方案，见 docs/whole-app-camera-20261015.md
+# 来源、哈希与重建步骤见 docs/whole-app-camera-20261015.md。
+# 本插件已在 device.toml 中默认启用；依赖的库与 cameraserver 插件仍需整包验收。
+
+[plugin]
+id = "flyme12.houji-whole-app-leica-camera"
+version = "0.1.0"
+engine = ">=0.1.0,<0.2.0"
+description = "徕卡相机与相册整包（Xiaomi 14，静态 APK + 库 + 权限与 device_features）"
+enabled = true
+order = 1421
+
+[port]
+mutable_partitions = ["system", "product"]
+
+[[steps]]
+id = "drop-stale-miui-camera-preopt"
+
+[[steps.actions]]
+id = "drop-miui-camera-oat"
+op = "delete_tree"
+path = "stage:system/system/priv-app/MiuiCamera/oat"
+on_missing = "skip"
+
+[[steps.actions]]
+id = "drop-miui-gallery-oat"
+op = "delete_tree"
+path = "stage:system/system/priv-app/MIUIGallery/oat"
+on_missing = "skip"
+
+[[steps]]
+id = "install-leica-camera-whole-app"
+needs = ["drop-stale-miui-camera-preopt"]
+
+[[steps.actions]]
+id = "extract-leica-camera-files"
+op = "extract_chunked_zip"
+manifest = "asset:apps/leica-miui-camera/leica-miui-camera.toml"
+
+[[steps.actions.mappings]]
+prefix = "system/priv-app/MiuiCamera"
+to = "stage:system/system/priv-app/MiuiCamera"
+
+[[steps.actions.mappings]]
+prefix = "system/priv-app/MIUIGallery"
+to = "stage:system/system/priv-app/MIUIGallery"
+
+[[steps.actions.mappings]]
+prefix = "system/etc/permissions"
+to = "stage:system/system/etc/permissions"
+
+[[steps.actions.mappings]]
+prefix = "system/product/etc/device_features"
+to = "stage:product/etc/device_features"

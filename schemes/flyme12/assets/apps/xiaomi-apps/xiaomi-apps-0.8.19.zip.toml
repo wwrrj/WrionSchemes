@@ -1,0 +1,24 @@
+schema_version = 1
+archive_size = 149838274
+archive_sha256 = "a8d5caea232b1913778197e5b98e71f3be24ab1fe9acdb2c3b8ee421eb925174"
+uncompressed_size = 277145165
+
+[[parts]]
+path = "xiaomi-apps-0.8.19.zip.part000"
+size = 48000000
+sha256 = "2e1260b7e35075939b264ee67eda5cb4a7453348c1834664dcded560e413aff7"
+
+[[parts]]
+path = "xiaomi-apps-0.8.19.zip.part001"
+size = 48000000
+sha256 = "f2883a2d46c3488aee1993a0e1bb3d6971aa1180dc1da6f699733e2de0eaabc6"
+
+[[parts]]
+path = "xiaomi-apps-0.8.19.zip.part002"
+size = 48000000
+sha256 = "5acd9e42113326cdae0b3968b648e40ecbe5be4cb877780591ad7248e2433515"
+
+[[parts]]
+path = "xiaomi-apps-0.8.19.zip.part003"
+size = 5838274
+sha256 = "6adb6ba467e339812175146e59746acf584a0d132b5a2b465732bd076eaa456d"

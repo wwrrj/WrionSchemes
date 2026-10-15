@@ -11,6 +11,11 @@ author = "wwrrj"
 enabled = [
   "flyme12.cleanup",
   "flyme12.wrion-patcher-houji",
+  "flyme12.houji-whole-app-meizu-camera",
+  "flyme12.houji-whole-app-leica-camera",
+  "flyme12.houji-xiaomi-libraries",
+  "flyme12.houji-leica-cameraserver",
+  "flyme12.houji-xiaomi-apps",
 ]
 disabled = []
 

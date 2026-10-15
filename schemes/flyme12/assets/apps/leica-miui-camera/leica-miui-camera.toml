@@ -1,0 +1,39 @@
+schema_version = 1
+archive_size = 334438702
+archive_sha256 = "4b9f57238525957a27924a1cfa47c3a43b5251878c195f883d3b2fe4520828b7"
+uncompressed_size = 334433430
+
+[[parts]]
+path = "leica-miui-camera.part000"
+size = 48000000
+sha256 = "4991a1478ef32e2608e60f852df486574745010a83a05a39a022ec0e66ae0cca"
+
+[[parts]]
+path = "leica-miui-camera.part001"
+size = 48000000
+sha256 = "de48ad7705cc84e2f8bfad5c42dd3fdfb07c4a39d52c87f7fb16335d19a5b243"
+
+[[parts]]
+path = "leica-miui-camera.part002"
+size = 48000000
+sha256 = "b92d5b48ecf71cd51cf3ffd2c257f67e29e0cb125d071b6a633df3ae7471adf3"
+
+[[parts]]
+path = "leica-miui-camera.part003"
+size = 48000000
+sha256 = "e70eafbb9b2d0e908b837731065a5cfdf91d3a7cd2e7110e7c569f6168a007eb"
+
+[[parts]]
+path = "leica-miui-camera.part004"
+size = 48000000
+sha256 = "a153a3d70da542cee5b0005bcbf2575101aa9471b75341a547f316460e0565df"
+
+[[parts]]
+path = "leica-miui-camera.part005"
+size = 48000000
+sha256 = "bc956020532e83cfded5e85510008c22664e3344092ef0c9314426c86d0197ae"
+
+[[parts]]
+path = "leica-miui-camera.part006"
+size = 46438702
+sha256 = "f033c8084fef0edd86b9a971ff1e5068d1dc6de38e4c96821d45fafb20a267eb"

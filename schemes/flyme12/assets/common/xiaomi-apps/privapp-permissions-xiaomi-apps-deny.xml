@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permissions>
+    <privapp-permissions package="com.miui.cloudservice">
+        <deny-permission name="android.permission.ACCESS_CACHE_FILESYSTEM" />
+        <deny-permission name="android.permission.INTERACT_ACROSS_USERS" />
+        <deny-permission name="android.permission.MANAGE_USERS" />
+        <deny-permission name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
+        <deny-permission name="android.permission.START_ACTIVITIES_FROM_BACKGROUND" />
+        <deny-permission name="android.permission.UPDATE_APP_OPS_STATS" />
+    </privapp-permissions>
+    <privapp-permissions package="com.miui.micloudsync">
+        <deny-permission name="android.permission.INTERACT_ACROSS_USERS" />
+        <deny-permission name="android.permission.WRITE_SECURE_SETTINGS" />
+    </privapp-permissions>
+    <privapp-permissions package="com.xiaomi.account">
+        <deny-permission name="android.permission.GET_ACCOUNTS_PRIVILEGED" />
+        <deny-permission name="android.permission.INTERACT_ACROSS_USERS" />
+        <deny-permission name="android.permission.LOCAL_MAC_ADDRESS" />
+        <deny-permission name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
+        <deny-permission name="android.permission.WRITE_SECURE_SETTINGS" />
+    </privapp-permissions>
+</permissions>

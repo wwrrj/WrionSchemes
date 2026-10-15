@@ -1,0 +1,14 @@
+schema_version = 1
+archive_size = 49223026
+archive_sha256 = "04d80d26a2db8c79ea1250aa97b16e94c8ad2b4c23f7c1697f768aeec1212ef1"
+uncompressed_size = 49222862
+
+[[parts]]
+path = "meizu-camera.part000"
+size = 48000000
+sha256 = "b428b09aef7f048ee8e35ceac16a73737876e94f58f7681083aef3feed9aa618"
+
+[[parts]]
+path = "meizu-camera.part001"
+size = 1223026
+sha256 = "dbe8a48b00bf42a55fbe995ea6dd6697ea8b9adfe2e9fb5ea7b22adee9b68ee7"
