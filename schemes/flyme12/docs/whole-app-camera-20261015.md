@@ -138,9 +138,11 @@
 
 ## 六、入库策略
 
-- 分片文件（`assets/apps/*/*.part*`）已加入 `WrionSchemes/.gitignore`，不入库。
-- 入库的是 manifest（`*.toml`）、插件、本文档，以及 WrionPatcher 中的 plan / points / helper 源。
-- 分片与源 ZIP 的唯一来源是本机 `.local` 与上述哈希。换机器重建须先按本文恢复源 APK，再用分片脚本生成。
+- 按用户要求，四组应用与库的 14 个分片（`assets/apps/*/*.part*`）与 manifest 一并入库，合计 543492970 字节。
+- `.gitattributes` 将分片标为 binary，避免 Windows 换行转换破坏原始字节。
+- 克隆方案仓库即可使用分片；Builder 按 manifest 校验分片及完整档案的大小与 SHA-256。
+- 本机 `.local` 中的源 ZIP 与本文记录用于复核和重新生成分片，不再是换机器使用方案的前置要求。
+- WrionPatcher 中的 plan / points / helper 源仍在对应源码仓库维护。
 
 ## 七、验证状态
 

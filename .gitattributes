@@ -1,0 +1,2 @@
+# 应用与库的分片必须按原始字节保存，不进行换行转换或文本合并。
+schemes/flyme12/assets/apps/*/*.part* binary

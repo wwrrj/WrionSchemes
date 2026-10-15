@@ -21,7 +21,8 @@ WrionTools 使用的移植方案仓库。收录在 `system`、`system_ext`、`pr
 
 魅族与徕卡整包的来源、哈希、改动方法与分片重建见 [整包相机记录](schemes/flyme12/docs/whole-app-camera-20261015.md)。
 sepolicy 不进方案，已直接合并进 `xm14/vendor_a/etc/selinux/vendor_sepolicy.cil`（CIL，待构建编译）。
-分片文件不入库（`assets/apps/*/*.part*`）。
+应用与库的分片（`assets/apps/*/*.part*`）随 manifest 一并入库；克隆后可直接使用，
+无需另行从本机恢复。分片和完整档案均由 manifest 中的 SHA-256 校验。
 
 `wrion-patcher-<机型>` 插件由 WrionTools 的 **WrionPatcher** 页面生成和维护：在页面里为机型勾选插桩
 方案并保存，会改写插件文件和该机型 `device.toml` 的 `enabled` 列表。不要手工编辑这些插件。

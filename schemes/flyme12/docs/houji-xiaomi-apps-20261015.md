@@ -8,7 +8,7 @@
 - 载荷：`HarusoraRepairSchemes/schemes/coloros16/assets/common/xiaomi-apps/xiaomi-apps-0.8.19.zip.part000..003`，
   已拼接校验，archive sha256 `a8d5caea232b1913778197e5b98e71f3be24ab1fe9acdb2c3b8ee421eb925174`，
   51 个条目，解压后 277145165 字节。
-- 复制到本方案：`assets/apps/xiaomi-apps/`（4 个分片与 manifest，分片不入库）；
+- 复制到本方案：`assets/apps/xiaomi-apps/`（4 个分片与 manifest，均已入库）；
   三份权限 XML 复制到 `assets/common/xiaomi-apps/`。
 - 依据插件：`HarusoraRepairSchemes/schemes/coloros16/plugins/xiaomi-apps/plugin.toml`（0.8.20），README 记录了账号 compat jar、
   NFC、钱包入口等 ColorOS 侧的已知问题。
