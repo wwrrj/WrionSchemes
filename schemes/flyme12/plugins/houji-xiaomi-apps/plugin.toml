@@ -3,8 +3,8 @@ schema_version = 1
 # 小米钱包与账号（MiApps 0.8.19 载荷）。载荷、权限 XML 与 fs_config 取自 HarusoraRepairSchemes/coloros16 的
 # coloros16.xiaomi-apps 插件，去掉 ColorOS 专属项（framework-location.jar、product_mac_permissions.xml、
 # my_region 钱包配置、FidoAsm 删除、ro.harusora.xiaomi_apps.mode 标记），保留 ro.miui.ui.version.* 静态属性。
-# 未包含：framework 作用域补丁（Account 需要的 Intent.getMiuiFlags 等）、services 的 TSM 共享 UID 补丁。
-# 缺少后者时 TSM（sharedUserId android.uid.nfc）在 Flyme 上会因签名不匹配而安装失败。
+# framework 作用域补丁、services 的 TSM/账号/FindDevice 入口和 ART 配套编译由
+# flyme12.wrion-patcher-houji 统一提供；本插件只负责载荷、权限 XML 与库文件。
 # 来源、哈希与风险见 docs/houji-xiaomi-apps-20261015.md。
 
 [plugin]

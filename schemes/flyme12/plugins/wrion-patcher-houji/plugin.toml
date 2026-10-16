@@ -16,6 +16,20 @@ order = 1410
 [port]
 mutable_partitions = ["system", "system_ext"]
 
+[art]
+manifest = "common/art/houji/manifest.json"
+
+[[steps]]
+id = "patch-authorized-framework"
+
+[[steps.actions]]
+id = "wrion-authorized-framework"
+op = "wrion_patch"
+path = "stage:system/system/framework/framework.jar"
+scope = "framework"
+profile = "patches/authorized/framework/points.json"
+plans = ["framework.xiaomi_app_compat", "framework.xiaomi_account_telephony_fallback", "framework.xiaomi_account_device_name", "framework.finddevice_window_transport", "framework.tsm_native_nfc_adapter", "framework.tsm_self_package_order", "framework.tsm_native_vaid", "framework.tsm_foreground_nfc"]
+
 [[steps]]
 id = "patch-authorized-services"
 
@@ -26,7 +40,7 @@ path = "stage:system/system/framework/services.jar"
 scope = "services"
 profile = "patches/authorized/services/points.json"
 source_dex = "asset:common/wrion-patcher/service-flyme.dex"
-plans = ["services.fingerprint_lifecycle", "services.face_camera_ownership", "services.flyme_color_mode", "services.flyme_wireless_reverse_charging", "services.gesture.fod_touch_arming", "services.gesture.double_tap_to_wake"]
+plans = ["services.fingerprint_lifecycle", "services.face_camera_ownership", "services.flyme_color_mode", "services.flyme_wireless_reverse_charging", "services.xiaomi_tsm_shared_uid", "services.xiaomi_account_library", "services.finddevice_window", "services.xiaomi_cloud_builtin_dependency", "services.tsm_account_visibility", "services.tsm_native_token_cache", "services.gesture.fod_touch_arming", "services.gesture.double_tap_to_wake"]
 
 [[steps]]
 id = "patch-authorized-telephony-meizu"
